@@ -1,0 +1,181 @@
+/**
+ * DONA LU — Produtos Page CSS
+ */
+
+/* Layout sidebar + main */
+.products-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+/* Sidebar */
+.products-sidebar__inner {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  position: sticky;
+  top: calc(var(--header-nav-height) + var(--space-4));
+}
+
+.products-sidebar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.products-sidebar__title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+}
+
+.products-sidebar__reset {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+
+.products-sidebar__reset:hover {
+  color: var(--color-secondary-dark);
+}
+
+.products-sidebar__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.products-sidebar__item {
+  list-style: none;
+}
+
+.products-sidebar__btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.625rem var(--space-3);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-700);
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+  text-align: left;
+}
+
+.products-sidebar__btn:hover {
+  background-color: var(--color-gray-50);
+  color: var(--color-primary);
+}
+
+.products-sidebar__btn.is-active {
+  background-color: var(--color-primary-light);
+  color: var(--color-secondary-dark);
+  font-weight: var(--font-weight-semibold);
+}
+
+.products-sidebar__count {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-400);
+  background-color: var(--color-gray-100);
+  border-radius: var(--radius-full);
+  padding: 1px 7px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.products-sidebar__btn.is-active .products-sidebar__count {
+  background-color: var(--color-primary-light);
+  color: var(--color-secondary-dark);
+}
+
+/* Main area */
+.products-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.products-count {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.products-search {
+  flex: 1;
+  max-width: 320px;
+}
+
+.products-search__wrapper {
+  position: relative;
+}
+
+.products-search__icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-gray-400);
+  pointer-events: none;
+}
+
+.products-search__input {
+  padding-left: 2.5rem;
+}
+
+/* Empty state */
+.products-empty {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-16) 0;
+  color: var(--color-gray-400);
+  text-align: center;
+}
+
+.products-empty svg {
+  color: var(--color-gray-300);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 1024px) {
+  .products-layout {
+    grid-template-columns: 220px 1fr;
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 768px) {
+  .products-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .products-sidebar__inner {
+    position: static;
+  }
+
+  .products-search {
+    max-width: 100%;
+  }
+}

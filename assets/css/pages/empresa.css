@@ -1,0 +1,92 @@
+/**
+ * DONA LU — Empresa Page CSS
+ */
+
+.company-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+  margin-top: var(--space-8);
+}
+
+.company-intro__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.company-intro__body p {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+.company-intro__image {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.company-intro__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* MVV */
+.mvv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.mvv-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  text-align: center;
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.mvv-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.mvv-card__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-5);
+}
+
+.mvv-card__icon--green  { background-color: var(--color-primary-light);  color: var(--color-primary); }
+.mvv-card__icon--blue   { background-color: var(--color-bg-tertiary);   color: var(--color-secondary); }
+.mvv-card__icon--purple { background-color: var(--color-yellow); color: var(--color-yellow); }
+
+.mvv-card__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-4);
+}
+
+.mvv-card__desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+@media (max-width: 1024px) {
+  .company-intro { grid-template-columns: 1fr; gap: var(--space-8); }
+}
+
+@media (max-width: 768px) {
+  .mvv-grid { grid-template-columns: 1fr; }
+}

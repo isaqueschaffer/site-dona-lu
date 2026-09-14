@@ -1,0 +1,206 @@
+/**
+ * DONA LU — Layout Global
+ * Estilos do header, footer, topbar, navegação e estrutura de páginas.
+ * Refatorado para Design System Sênior com tipografia fluida e responsividade nativa.
+ */
+
+/* =========================================
+   TOPBAR
+========================================= */
+.topbar {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  padding: clamp(8px, 1vw, 10px) 0;
+  font-size: clamp(12px, 1.5vw, 14px);
+  text-align: center;
+  position: relative;
+  z-index: var(--z-sticky);
+}
+.topbar a {
+  color: var(--color-yellow);
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+.topbar a:hover {
+  color: var(--color-white);
+}
+
+/* =========================================
+   HEADER / NAVBAR
+========================================= */
+.header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border-light);
+  height: clamp(70px, 8vw, 90px);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  transition: box-shadow var(--transition-base);
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.header__logo-image {
+  height: clamp(40px, 6vw, 60px);
+  width: auto;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(15px, 2vw, 30px);
+}
+
+.nav__link {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+.nav__link:hover,
+.nav__link.is-active {
+  color: var(--color-primary);
+}
+
+.nav__btn {
+  background: var(--color-yellow);
+  color: var(--color-secondary);
+  padding: 10px 25px;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+.nav__btn:hover {
+  transform: scale(1.05);
+  background: #f0ce00;
+}
+
+/* Mobile Toggle Button */
+.nav__toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--color-primary);
+  padding: 5px;
+}
+
+/* =========================================
+   FOOTER (Estilo RP Clean Escuro)
+========================================= */
+.footer {
+  background-color: var(--color-secondary);
+  padding: clamp(40px, 5vw, 60px) 0 0;
+  color: var(--color-white);
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 20vw, 250px), 1fr));
+  gap: clamp(20px, 4vw, 40px);
+}
+
+.footer__col img {
+  height: clamp(60px, 8vw, 80px);
+  margin-bottom: var(--space-4);
+}
+
+.footer__col p {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-gray-300);
+}
+
+.footer__title {
+  color: var(--color-yellow);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-4);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+}
+
+.footer__link {
+  color: var(--color-white);
+  transition: color var(--transition-fast);
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+}
+.footer__link:hover {
+  color: var(--color-yellow);
+}
+
+.footer__bottom {
+  background: var(--color-secondary-dark);
+  padding: var(--space-4) 0;
+  margin-top: clamp(30px, 5vw, 40px);
+  text-align: center;
+  font-size: var(--font-size-sm);
+}
+
+/* =========================================
+   GENERIC SECTIONS
+========================================= */
+.section {
+  padding: clamp(40px, 8vw, 80px) 0;
+}
+
+.section-title {
+  font-size: clamp(24px, 4vw, 32px);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin-bottom: clamp(20px, 4vw, 40px);
+}
+.section-title span {
+  color: var(--color-secondary);
+}
+
+/* =========================================
+   RESPONSIVIDADE — LAYOUT
+========================================= */
+@media (max-width: 768px) {
+  .nav__toggle {
+    display: block;
+  }
+  
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--color-white);
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
+  }
+
+  .nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav__link, .nav__btn {
+    width: 100%;
+    text-align: center;
+    padding: var(--space-3) 0;
+  }
+}

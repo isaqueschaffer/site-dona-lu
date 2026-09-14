@@ -1,0 +1,114 @@
+/**
+ * DONA LU — CSS Reset
+ * Reset mínimo e normalização para consistência cross-browser.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Imagens e mídia responsivas */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+/* Inputs herdam tipografia */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remoção de estilos de lista */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Links sem sublinhado por padrão */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Headings com peso e espaçamento padrão */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-snug);
+  color: var(--color-text-primary);
+}
+
+/* Parágrafo */
+p {
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+}
+
+/* Botão reset */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Fieldset reset */
+fieldset {
+  border: none;
+}
+
+/* Tabelas */
+table {
+  border-collapse: collapse;
+}
+
+/* Remoção de aparência nativa em inputs */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+/* Redução de movimento para acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

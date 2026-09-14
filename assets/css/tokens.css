@@ -1,0 +1,177 @@
+/**
+ * DONA LU — Design Tokens
+ * Sistema central de design: cores, tipografia, espaçamento, sombras e transições.
+ * Edite aqui para atualizar a identidade visual em todo o site.
+ */
+
+:root {
+  /* =========================================
+     CORES PRIMÁRIAS
+  ========================================= */
+  --color-primary:      #0050A0;
+  --color-primary-light:#007BD9;
+  --color-secondary:    #1A3247;
+  --color-secondary-dark: #003365;
+
+  --color-yellow:       #F9D915;
+  --color-green:        #05DBC1;
+
+  /* =========================================
+     ESCALA DE CINZAS
+  ========================================= */
+  --color-white:        #FFFFFF;
+  --color-gray-50:      #F8F9FA;
+  --color-gray-100:     #F1F3F5;
+  --color-gray-200:     #E9ECEF;
+  --color-gray-300:     #DEE2E6;
+  --color-gray-400:     #ADB5BD;
+  --color-gray-500:     #868E96;
+  --color-gray-600:     #6C757D;
+  --color-gray-700:     #495057;
+  --color-gray-800:     #343A40;
+  --color-gray-900:     #1A1D21;
+
+  /* =========================================
+     CORES SEMÂNTICAS
+  ========================================= */
+  --color-text-primary:   var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-600);
+  --color-text-muted:     var(--color-gray-500);
+  --color-text-on-dark:   var(--color-white);
+
+  --color-bg-primary:     var(--color-white);
+  --color-bg-secondary:   var(--color-gray-50);
+  --color-bg-tertiary:    var(--color-gray-100);
+  --color-bg-dark:        #0F1923;
+  --color-bg-dark-2:      #162030;
+
+  --color-border:         var(--color-gray-200);
+  --color-border-light:   var(--color-gray-100);
+
+  --color-success:        var(--color-green);
+  --color-error:          #D93025;
+  --color-warning:        #F59E0B;
+
+  /* =========================================
+     TIPOGRAFIA
+  ========================================= */
+  --font-family-base: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --font-size-xs:   0.75rem;    /* 12px */
+  --font-size-sm:   0.875rem;   /* 14px */
+  --font-size-base: 1rem;       /* 16px */
+  --font-size-md:   1.125rem;   /* 18px */
+  --font-size-lg:   1.25rem;    /* 20px */
+  --font-size-xl:   1.5rem;     /* 24px */
+  --font-size-2xl:  1.875rem;   /* 30px */
+  --font-size-3xl:  2.25rem;    /* 36px */
+  --font-size-4xl:  3rem;       /* 48px */
+  --font-size-5xl:  3.75rem;    /* 60px */
+
+  --font-weight-regular:   400;
+  --font-weight-medium:    500;
+  --font-weight-semibold:  600;
+  --font-weight-bold:      700;
+
+  --line-height-tight:  1.2;
+  --line-height-snug:   1.35;
+  --line-height-normal: 1.5;
+  --line-height-relaxed:1.7;
+
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-snug:  -0.01em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide:   0.04em;
+  --letter-spacing-wider:  0.08em;
+
+  /* =========================================
+     ESPAÇAMENTO
+  ========================================= */
+  --space-1:   0.25rem;   /* 4px */
+  --space-2:   0.5rem;    /* 8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.25rem;   /* 20px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-8:   2rem;      /* 32px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+  --space-24:  6rem;      /* 96px */
+  --space-32:  8rem;      /* 128px */
+
+  /* =========================================
+     LAYOUT
+  ========================================= */
+  --container-max:   1200px;
+  --container-wide:  1400px;
+  --container-narrow: 800px;
+  --gutter:          1.5rem;
+  --gutter-lg:       2rem;
+
+  /* =========================================
+     BORDAS E RAIOS
+  ========================================= */
+  --radius-sm:   4px;
+  --radius-md:   6px;
+  --radius-lg:   8px;
+  --radius-xl:   12px;
+  --radius-full: 9999px;
+
+  /* =========================================
+     SOMBRAS
+  ========================================= */
+  --shadow-xs:  0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg:  0 8px 24px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
+  --shadow-xl:  0 16px 40px rgba(0, 0, 0, 0.10), 0 8px 16px rgba(0, 0, 0, 0.05);
+
+  /* =========================================
+     TRANSIÇÕES
+  ========================================= */
+  --transition-fast:   150ms ease-out;
+  --transition-base:   200ms ease-out;
+  --transition-slow:   300ms ease-out;
+  --transition-slower: 400ms ease-out;
+
+  /* =========================================
+     Z-INDEX
+  ========================================= */
+  --z-below:    -1;
+  --z-base:      0;
+  --z-above:    10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+
+  /* =========================================
+     HEADER
+  ========================================= */
+  --header-topbar-height: 40px;
+  --header-nav-height:    72px;
+  --header-total-height:  112px;
+}
+
+/* Utilitários de acessibilidade */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus visível para navegação por teclado */
+:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}

@@ -1,0 +1,187 @@
+/**
+ * DONA LU — Locação Page CSS
+ */
+
+/* Processo de locação */
+.rental-process__steps {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 0;
+  align-items: start;
+  margin-top: var(--space-12);
+}
+
+.rental-process__step {
+  text-align: center;
+  padding: 0 var(--space-6);
+}
+
+.rental-process__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  border-radius: 50%;
+  margin: 0 auto var(--space-5);
+}
+
+.rental-process__step-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-3);
+}
+
+.rental-process__step-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+.rental-process__connector {
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-border);
+  margin-top: 28px;
+  flex-shrink: 0;
+}
+
+/* Filtros de categoria de máquinas */
+.machines-filter {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-8);
+  justify-content: center;
+}
+
+.machines-filter__btn {
+  padding: 0.5rem 1.25rem;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-600);
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.machines-filter__btn:hover {
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+.machines-filter__btn.is-active {
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+/* Informações de locação */
+.rental-info__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-10);
+}
+
+.rental-info__card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  text-align: center;
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.rental-info__card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-border);
+}
+
+.rental-info__icon {
+  width: 56px;
+  height: 56px;
+  background-color: var(--color-bg-tertiary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-4);
+  color: var(--color-secondary);
+}
+
+.rental-info__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-3);
+}
+
+.rental-info__desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Specs técnicos nos cards de máquina */
+.machine-specs {
+  margin-bottom: var(--space-5);
+}
+
+.machine-specs__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+.machine-specs__table tr {
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.machine-specs__table td {
+  padding: var(--space-2) 0;
+  vertical-align: top;
+}
+
+.machine-specs__table td:first-child {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-700);
+  width: 40%;
+}
+
+.machine-specs__table td:last-child {
+  color: var(--color-text-secondary);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .rental-info__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .rental-process__steps {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .rental-process__connector {
+    display: none;
+  }
+
+  .rental-info__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cards-grid--2 {
+    grid-template-columns: 1fr;
+  }
+}

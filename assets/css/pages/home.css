@@ -1,0 +1,277 @@
+/**
+ * DONA LU — Home Page CSS
+ * Estilos específicos da página inicial (Design System RP Clean).
+ * Refatorado para garantir responsividade 320px a 1920px.
+ */
+
+/* =========================================
+   HERO SECTION
+========================================= */
+.hero {
+  background: linear-gradient(90deg, #006DD9 0%, #0050A0 100%);
+  padding: clamp(60px, 10vw, 120px) 0;
+  color: var(--color-white);
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+  line-height: 1.2;
+}
+
+.hero h1 span {
+  color: var(--color-yellow);
+}
+
+.hero p {
+  font-size: clamp(16px, 2vw, 18px);
+  margin-bottom: var(--space-6);
+  font-weight: 300;
+  max-width: 600px;
+  line-height: var(--line-height-relaxed);
+}
+
+.hero .btn-hero {
+  background-color: var(--color-yellow);
+  color: var(--color-secondary);
+  font-weight: 700;
+  font-size: clamp(16px, 2vw, 18px);
+  padding: 15px 30px;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+  text-decoration: none;
+}
+.hero .btn-hero:hover {
+  transform: scale(1.05);
+  background-color: #f0ce00;
+}
+
+/* =========================================
+   CATEGORIAS (LINHAS DE ATUAÇÃO)
+========================================= */
+.categories-section {
+  background: var(--color-bg-secondary);
+}
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 20vw, 200px), 1fr));
+  gap: clamp(15px, 3vw, 20px);
+}
+
+.cat-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: clamp(20px, 3vw, 30px) clamp(10px, 2vw, 20px);
+  text-align: center;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  border-bottom: 4px solid var(--color-primary);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cat-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-yellow);
+  box-shadow: var(--shadow-md);
+}
+
+.cat-card img {
+  height: clamp(40px, 6vw, 60px);
+  margin-bottom: var(--space-4);
+  /* Filtro para colorir o SVG de Azul Primário */
+  filter: invert(21%) sepia(87%) saturate(3025%) hue-rotate(200deg) brightness(97%) contrast(106%);
+}
+
+.cat-card h3 {
+  font-weight: 600;
+  font-size: clamp(16px, 2vw, 18px);
+  color: var(--color-secondary);
+}
+
+/* =========================================
+   MAIS VENDIDOS
+========================================= */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 25vw, 250px), 1fr));
+  gap: clamp(20px, 4vw, 30px);
+}
+
+.product-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: var(--space-5);
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.product-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.product-card .img-bg {
+  background-color: var(--color-bg-tertiary);
+  padding: var(--space-8) var(--space-4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-card img {
+  height: clamp(120px, 15vw, 150px);
+  object-fit: contain;
+}
+
+.product-card h3 {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-secondary);
+  padding: var(--space-5) var(--space-2) var(--space-2);
+  flex-grow: 1;
+}
+
+.product-card .btn-prod {
+  background-color: var(--color-green);
+  color: var(--color-secondary);
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  margin: var(--space-2) auto 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color var(--transition-fast);
+  text-decoration: none;
+}
+.product-card .btn-prod:hover {
+  background-color: var(--color-yellow);
+}
+
+/* =========================================
+   CALL TO ACTION (CONSULTORIA)
+========================================= */
+.cta {
+  background: var(--color-secondary);
+  padding: clamp(60px, 8vw, 80px) 0;
+  color: var(--color-white);
+}
+
+.cta .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+}
+
+.cta__content {
+  flex: 1 1 min(100%, 400px);
+}
+
+.cta h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  color: var(--color-yellow);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+  line-height: 1.2;
+}
+
+.cta p {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 300;
+  line-height: var(--line-height-relaxed);
+}
+
+.cta .btn-cta {
+  background-color: var(--color-green);
+  color: var(--color-secondary);
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 700;
+  padding: 15px clamp(20px, 4vw, 40px);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.cta .btn-cta:hover {
+  transform: scale(1.05);
+  background-color: #1DAD55;
+}
+
+/* =========================================
+   PARCEIROS
+========================================= */
+.partner-card {
+  display: block;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: clamp(20px, 4vw, 30px);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+  border: 1px solid var(--color-border-light);
+  text-decoration: none;
+  text-align: center;
+}
+.partner-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.partner-card img {
+  height: clamp(40px, 6vw, 60px);
+  width: auto;
+  object-fit: contain;
+  margin-bottom: var(--space-5);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.partner-card h3 {
+  font-size: clamp(20px, 3vw, 24px);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+  color: var(--color-secondary);
+}
+
+.partner-card p {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  line-height: var(--line-height-relaxed);
+}
+
+/* =========================================
+   RESPONSIVIDADE EXTREMA
+========================================= */
+@media (max-width: 768px) {
+  .cta .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .cta .btn-cta {
+    width: 100%;
+  }
+
+  .hero {
+    text-align: center;
+  }
+}

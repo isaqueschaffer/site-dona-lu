@@ -1,0 +1,171 @@
+/**
+ * DONA LU — Soluções Page CSS
+ */
+
+/* Segmentos detalhados */
+.segment-detail {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin-bottom: var(--space-8);
+  transition: box-shadow var(--transition-base);
+}
+
+.segment-detail:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.segment-detail__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-8);
+  background-color: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.segment-detail__icon {
+  width: 64px;
+  height: 64px;
+  background-color: var(--color-bg-tertiary);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-secondary);
+}
+
+.segment-detail__title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-1);
+}
+
+.segment-detail__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.segment-detail__body {
+  padding: var(--space-8);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: var(--space-6);
+}
+
+.segment-detail__problem,
+.segment-detail__solution {
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+}
+
+.segment-detail__problem {
+  background-color: #FFF8F0;
+  border-left: 3px solid #F59E0B;
+}
+
+.segment-detail__solution {
+  background-color: var(--color-primary-light);
+  border-left: 3px solid var(--color-primary);
+}
+
+.segment-detail__section-title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-800);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  margin-bottom: var(--space-3);
+}
+
+.segment-detail__problem p,
+.segment-detail__solution p {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-gray-700);
+  margin: 0;
+}
+
+.segment-detail__items {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+.segment-detail__item-title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-800);
+  margin-bottom: var(--space-3);
+}
+
+.segment-detail__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.segment-detail__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-snug);
+}
+
+.segment-detail__list li::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-secondary);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.segment-detail__cta {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border-light);
+  flex-wrap: wrap;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .segment-detail__body {
+    grid-template-columns: 1fr;
+  }
+
+  .segment-detail__items {
+    grid-column: 1;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .segment-detail__cta {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .segment-detail__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .segment-detail__body {
+    padding: var(--space-6);
+  }
+
+  .segment-detail__items {
+    grid-template-columns: 1fr;
+  }
+}
