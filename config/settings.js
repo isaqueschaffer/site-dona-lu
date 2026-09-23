@@ -28,7 +28,7 @@ const DONALU_CONFIG = Object.freeze({
   contact: {
     phone:       '',                    // Ex: '(11) 9 9999-9999'
     phoneRaw:    '',                    // Ex: '11999999999' (somente dígitos)
-    email:       '',                    // Ex: 'contato@donalu.com.br'
+    email:       'donalumateriais@gmail.com',
     whatsapp:    '5517981321919',       // Ex: '5511999999999' (com DDI)
   },
 
@@ -52,7 +52,7 @@ const DONALU_CONFIG = Object.freeze({
      REDES SOCIAIS
   ========================================= */
   social: {
-    instagram:   '',                    // Ex: 'https://instagram.com/donalu'
+    instagram:   'https://www.instagram.com/donalumateriaisdelimpeza/',
     facebook:    '',                    // Ex: 'https://facebook.com/donalu'
     linkedin:    '',
   },
