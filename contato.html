@@ -3,16 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dona Lu — Contato</title>
-  
-  <meta name="description" content="A Dona Lu oferece as melhores soluções em produtos de limpeza profissional, equipamentos e serviços para empresas, condomínios e indústrias.">
+  <title>Dona Lu — Contato e Localização</title>
+  <meta name="description" content="Entre em contato com a Dona Lu. Tire suas dúvidas, solicite orçamentos ou agende uma visita técnica para limpeza profissional.">
+  <link rel="canonical" href="https://donalu.com.br/contato.html">
+  <meta property="og:title" content="Dona Lu — Contato">
+  <meta property="og:description" content="Entre em contato com a Dona Lu. Tire suas dúvidas, solicite orçamentos ou agende uma visita técnica.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donalu.com.br/contato.html">
+  <meta property="og:image" content="https://donalu.com.br/assets/images/logo/logo-donalu.jpg">
 
-  <!-- Google Fonts - Poppins -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Dona Lu",
+    "image": "https://donalu.com.br/assets/images/logo/logo-donalu.jpg",
+    "url": "https://donalu.com.br",
+    "telephone": "+5517981321919",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Exemplo, 1234",
+      "addressLocality": "São José do Rio Preto",
+      "addressRegion": "SP",
+      "postalCode": "15000-000",
+      "addressCountry": "BR"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="/assets/css/reset.css">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/layout.css">
@@ -22,78 +58,267 @@
   <script src="/config/settings.js" defer></script>
   <script src="/assets/js/components/whatsapp.js" defer></script>
   <script src="/assets/js/components/header.js" defer></script>
+
+  <style>
+    .hero-page {
+      background: linear-gradient(rgba(0, 48, 63, 0.7), rgba(0, 48, 63, 0.8)), url('/assets/images/hero/slide-1.jpg') center/cover;
+      color: white;
+      padding: var(--space-10) 0;
+      text-align: center;
+    }
+    .hero-page h1 {
+      font-family: var(--font-family-heading);
+      font-size: clamp(28px, 4vw, 40px);
+      margin-bottom: var(--space-3);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero-page p {
+      font-size: var(--font-size-base);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+      opacity: 0.95;
+    }
+    .contact-info-card {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      background: var(--color-white);
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-gray-200);
+      margin-bottom: var(--space-3);
+      transition: box-shadow 0.3s ease;
+    }
+    .contact-info-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-teal-light);
+    }
+    .contact-icon {
+      background: var(--color-teal-light);
+      color: var(--color-teal-dark);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+    .contact-form-wrapper {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--color-gray-200);
+      padding: var(--space-6);
+    }
+    .form-group {
+      margin-bottom: var(--space-4);
+    }
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: var(--space-2);
+    }
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--color-gray-300);
+      border-radius: var(--radius-md);
+      font-family: inherit;
+      font-size: var(--font-size-base);
+      color: var(--color-text);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px var(--color-teal-light);
+    }
+    .map-container {
+      width: 100%;
+      height: 400px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      margin-top: var(--space-12);
+    }
+  </style>
 </head>
-<body class="page-home">
+<body>
 
   <div class="topbar">
-    <div class="container">
-      Fale Conosco: <a href="#" data-whatsapp id="topbar-wa">17 98132-1919</a> | Produtos de Limpeza Profissional em São José do Rio Preto
-    </div>
+    <div class="container">Fale Conosco: <a href="#" data-whatsapp id="topbar-wa">(17) 98132-1919</a> &nbsp;|&nbsp; Produtos de Limpeza Profissional em São José do Rio Preto</div>
   </div>
 
   <header class="header">
     <div class="container">
-      <a href="/index.html" class="header__logo">
-        <img src="/assets/images/logo/logo-donalu.jpg" alt="Dona Lu" class="header__logo-image">
-      </a>
-      
-      <button id="nav-toggle" class="nav__toggle" aria-label="Abrir menu" aria-expanded="false">
-        ☰
+      <a href="/index.html" class="header__logo"><img src="/assets/images/logo/logo-donalu.jpg" alt="Dona Lu" class="header__logo-image"></a>
+      <button id="nav-toggle" class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
-      
-      <nav class="nav" id="main-nav">
-        <a href="/index.html" class="nav__link is-active">Início</a>
+      <nav class="nav" id="main-nav" aria-label="Menu principal">
+        <a href="/index.html" class="nav__link">Início</a>
         <a href="/produtos.html" class="nav__link">Produtos</a>
         <a href="/locacao.html" class="nav__link">Locação</a>
         <a href="/solucoes.html" class="nav__link">Soluções</a>
+        <a href="/blog/index.html" class="nav__link">Blog</a>
         <a href="/empresa.html" class="nav__link">Empresa</a>
-        <a href="/contato.html" aria-current="page" class="nav__btn">Contato</a>
+        <a href="/contato.html" class="nav__btn" aria-current="page">Contato</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section style="padding: 100px 20px; text-align: center; min-height: 50vh;">
+    <section class="hero-page">
       <div class="container">
-        <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Contato</h1>
-        <p style="font-size: 1.2rem; color: #666;">Esta página está em construção. Volte em breve!</p>
+        <h1>Fale Conosco</h1>
+        <p>Nossa equipe está pronta para atender você. Tire suas dúvidas, solicite orçamentos personalizados ou agende uma visita técnica em sua empresa.</p>
       </div>
     </section>
-    </main>
 
-  <footer class="footer">
-    <div class="container footer__grid">
-      <div class="footer__col">
-        <img src="/assets/images/logo/logo-donalu.jpg" alt="Dona Lu">
-        <p>Produtos de limpeza, equipamentos e soluções profissionais de higienização.</p>
-      </div>
-      <div class="footer__col">
-        <h3 class="footer__title">Institucional</h3>
-        <a href="/index.html" class="footer__link">Início</a>
-        <a href="/empresa.html" class="footer__link">A Empresa</a>
-        <a href="/solucoes.html" class="footer__link">Soluções</a>
-        <a href="/contato.html" aria-current="page" class="footer__link">Contato</a>
-      </div>
-      <div class="footer__col">
-        <h3 class="footer__title">Produtos</h3>
-        <a href="/produtos.html#limpeza-geral" class="footer__link">Limpeza Geral</a>
-        <a href="/produtos.html#automotiva" class="footer__link">Linha Automotiva</a>
-        <a href="/produtos.html#pisos" class="footer__link">Tratamento de Pisos</a>
-        <a href="/locacao.html" class="footer__link">Locação de Equipamentos</a>
-      </div>
-      <div class="footer__col">
-        <h3 class="footer__title">Fale Conosco</h3>
-        <a href="#" data-whatsapp class="footer__link">Whatsapp: 17 98132-1919</a>
-        <a href="mailto:contato@donalu.com.br" class="footer__link">contato@donalu.com.br</a>
-        <p style="margin-top: 10px;">Av. Exemplo, 1234<br>São José do Rio Preto, SP</p>
-      </div>
-    </div>
-    <div class="footer__bottom">
+    <section class="section" style="background: var(--color-gray-50); padding-top: var(--space-10);">
       <div class="container">
-        &copy; 2026 Dona Lu. Todos os direitos reservados.
+        <div class="grid grid--2-cols" style="gap: var(--space-8); align-items: stretch;">
+          
+          <!-- Informações de Contato -->
+          <div style="display:flex; flex-direction:column; justify-content:center;">
+            <h2 class="text-heading-md" style="color:var(--color-primary);margin-bottom:var(--space-4);">Informações de Contato</h2>
+            
+            <div class="contact-info-card">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <strong style="display:block;font-size:var(--font-size-base);margin-bottom:var(--space-1);color:var(--color-secondary);">WhatsApp / Telefone</strong>
+                <a href="#" data-whatsapp style="color:var(--color-primary);font-weight:600;text-decoration:none;font-size:16px;">(17) 98132-1919</a>
+                <p style="color:var(--color-text-secondary);font-size:var(--font-size-xs);margin-top:2px;">Resposta rápida em horário comercial</p>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <strong style="display:block;font-size:var(--font-size-base);margin-bottom:var(--space-1);color:var(--color-secondary);">E-mail Corporativo</strong>
+                <a href="mailto:contato@donalu.com.br" style="color:var(--color-text);text-decoration:none;font-size:var(--font-size-sm);">contato@donalu.com.br</a>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <strong style="display:block;font-size:var(--font-size-base);margin-bottom:var(--space-1);color:var(--color-secondary);">Nossa Loja / Distribuidora</strong>
+                <span style="color:var(--color-text-secondary);line-height:1.5;font-size:var(--font-size-sm);">Av. Exemplo, 1234 - Bairro<br>São José do Rio Preto, SP<br>CEP: 15000-000</span>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <strong style="display:block;font-size:var(--font-size-base);margin-bottom:var(--space-1);color:var(--color-secondary);">Horário de Atendimento</strong>
+                <span style="color:var(--color-text-secondary);line-height:1.5;font-size:var(--font-size-sm);">Segunda a Sexta: 08:00 às 18:00<br>Sábado: 08:00 às 12:00</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Formulário -->
+          <div class="contact-form-wrapper">
+            <h3 class="text-heading-md" style="margin-bottom: var(--space-4);color:var(--color-primary);text-align:center;font-size:24px;">Envie uma Mensagem</h3>
+            <form action="#" method="POST" id="contact-form">
+              <div class="form-group">
+                <label for="nome" style="font-size:var(--font-size-sm);">Nome Completo / Empresa</label>
+                <input type="text" id="nome" name="nome" class="form-control" placeholder="Digite seu nome ou o da sua empresa" required>
+              </div>
+              
+              <div class="grid grid--2-cols" style="gap:var(--space-4); margin-bottom:var(--space-4);">
+                <div class="form-group" style="margin-bottom:0;">
+                  <label for="email" style="font-size:var(--font-size-sm);">E-mail</label>
+                  <input type="email" id="email" name="email" class="form-control" placeholder="exemplo@email.com" required>
+                </div>
+                <div class="form-group" style="margin-bottom:0;">
+                  <label for="telefone" style="font-size:var(--font-size-sm);">Telefone / WhatsApp</label>
+                  <input type="tel" id="telefone" name="telefone" class="form-control" placeholder="(17) 90000-0000" required>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="assunto" style="font-size:var(--font-size-sm);">Assunto</label>
+                <select id="assunto" name="assunto" class="form-control" required>
+                  <option value="" disabled selected>Selecione uma opção...</option>
+                  <option value="orcamento">Orçamento de Produtos</option>
+                  <option value="locacao">Locação de Máquinas</option>
+                  <option value="servicos">Serviços Pós-Obra / Limpeza Geral</option>
+                  <option value="outros">Dúvidas / Outros assuntos</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="mensagem" style="font-size:var(--font-size-sm);">Como podemos ajudar?</label>
+                <textarea id="mensagem" name="mensagem" class="form-control" rows="4" placeholder="Descreva sua necessidade com detalhes..." required style="resize:vertical;"></textarea>
+              </div>
+              
+              <button type="submit" class="btn btn--primary" style="width:100%;font-size:16px;padding:12px;border-radius:var(--radius-md);">
+                Enviar Mensagem Segura
+              </button>
+              <p style="text-align:center;font-size:11px;color:var(--color-text-secondary);margin-top:var(--space-3);">
+                Ao enviar, você concorda com nossa <a href="/privacidade.html" style="color:var(--color-teal);text-decoration:underline;">Política de Privacidade</a>.
+              </p>
+            </form>
+          </div>
+
+        </div>
+
+        <div class="map-container" style="height: 300px; margin-top: var(--space-8); margin-bottom: var(--space-10);">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d119330.01524330616!2d-49.467475171732626!3d-20.822830847959074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bdade30ec2bdf1%3A0x7d028e3b3a696237!2zU8OjbyBKb3PDqSBkbyBSaW8gUHJldG8sIFNQ!5e0!3m2!1spt-BR!2sbr!4v1714421160351!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa de Localização em São José do Rio Preto">
+          </iframe>
+        </div>
       </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__grid">
+      <div class="footer__col"><img src="/assets/images/logo/logo-donalu.jpg" alt="Dona Lu" loading="lazy"><p>Distribuidora de produtos de limpeza profissional em São José do Rio Preto, SP.</p></div>
+      <div class="footer__col"><h3 class="footer__title">Categorias</h3><a href="/categoria/pos-obra.html" class="footer__link">Limpeza Pós Obra</a><a href="/categoria/limpeza-geral.html" class="footer__link">Limpeza Geral</a><a href="/locacao.html" class="footer__link">Aluguel de Máquinas</a></div>
+      <div class="footer__col"><h3 class="footer__title">Institucional</h3><a href="/empresa.html" class="footer__link">A Empresa</a><a href="/blog/index.html" class="footer__link">Blog</a><a href="/contato.html" class="footer__link">Contato</a></div>
+      <div class="footer__col"><h3 class="footer__title">Fale Conosco</h3><a href="#" data-whatsapp class="footer__link">WhatsApp: (17) 98132-1919</a><a href="mailto:contato@donalu.com.br" class="footer__link">contato@donalu.com.br</a></div>
     </div>
+    <div class="footer__bottom"><div class="container">&copy; 2026 Dona Lu. Todos os direitos reservados.</div></div>
   </footer>
 
+  <a href="#" data-whatsapp class="whatsapp-fab" id="whatsapp-fab" aria-label="Falar com a Dona Lu pelo WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.553 4.122 1.522 5.857L.057 23.882l6.182-1.621A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.013-1.377l-.36-.214-3.67.963.98-3.576-.235-.37A9.818 9.818 0 0 1 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.419-4.398 9.818-9.818 9.818z"/></svg>
+    <span class="whatsapp-fab__tooltip">Falar no WhatsApp</span>
+  </a>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const w = window.whatsappNumber || "5517981321919";
+      const nome = document.getElementById('nome').value;
+      const msg = document.getElementById('mensagem').value;
+      const text = encodeURIComponent(`Olá, meu nome é ${nome}. Vim pelo site.\n\n${msg}`);
+      window.open(`https://wa.me/${w}?text=${text}`, '_blank');
+    });
+  </script>
 </body>
 </html>

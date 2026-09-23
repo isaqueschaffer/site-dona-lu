@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dona Lu — Locação de Máquinas</title>
+  <title>Dona Lu — Locação de Máquinas de Limpeza</title>
+  <meta name="description" content="Aluguel de lavadoras de piso e varredeiras industriais de alta performance para otimizar sua limpeza profissional.">
+  <link rel="canonical" href="https://donalu.com.br/locacao.html">
+  <meta property="og:title" content="Dona Lu — Locação de Máquinas">
+  <meta property="og:description" content="Aluguel de lavadoras de piso e varredeiras industriais de alta performance para otimizar sua limpeza profissional.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donalu.com.br/locacao.html">
+  <meta property="og:image" content="https://donalu.com.br/assets/images/services/locacao_maquina.jpg">
   
-  <meta name="description" content="A Dona Lu oferece as melhores soluções em produtos de limpeza profissional, equipamentos e serviços para empresas, condomínios e indústrias.">
-
-  <!-- Google Fonts - Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="/assets/css/reset.css">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/layout.css">
@@ -22,30 +25,90 @@
   <script src="/config/settings.js" defer></script>
   <script src="/assets/js/components/whatsapp.js" defer></script>
   <script src="/assets/js/components/header.js" defer></script>
+
+  <style>
+    .hero-page {
+      background: linear-gradient(rgba(0, 48, 63, 0.8), rgba(0, 48, 63, 0.9)), url('/assets/images/services/locacao_maquina.jpg') center/cover;
+      color: white;
+      padding: var(--space-10) 0;
+      text-align: center;
+    }
+    .hero-page h1 {
+      font-family: var(--font-family-heading);
+      font-size: clamp(28px, 4vw, 40px);
+      margin-bottom: var(--space-3);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero-page p {
+      font-size: var(--font-size-base);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+    .step-card {
+      text-align: center;
+      padding: var(--space-6);
+      position: relative;
+    }
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--color-teal);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0 auto var(--space-3);
+      font-family: var(--font-family-heading);
+    }
+    .machine-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-gray-200);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .machine-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-teal-light);
+    }
+    .machine-card-content {
+      padding: var(--space-5);
+    }
+    .cta-banner {
+      background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-primary) 100%);
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: var(--space-8) var(--space-6);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+  </style>
 </head>
-<body class="page-home">
+<body>
 
   <div class="topbar">
-    <div class="container">
-      Fale Conosco: <a href="#" data-whatsapp id="topbar-wa">17 98132-1919</a> | Produtos de Limpeza Profissional em São José do Rio Preto
-    </div>
+    <div class="container">Fale Conosco: <a href="#" data-whatsapp id="topbar-wa">(17) 98132-1919</a> &nbsp;|&nbsp; Produtos de Limpeza Profissional em São José do Rio Preto</div>
   </div>
 
   <header class="header">
     <div class="container">
-      <a href="/index.html" class="header__logo">
-        <img src="/assets/images/logo/logo-donalu.jpg" alt="Dona Lu" class="header__logo-image">
-      </a>
-      
-      <button id="nav-toggle" class="nav__toggle" aria-label="Abrir menu" aria-expanded="false">
-        ☰
+      <a href="/index.html" class="header__logo"><img src="/assets/images/logo/logo-donalu.jpg" alt="Dona Lu" class="header__logo-image"></a>
+      <button id="nav-toggle" class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
-      
-      <nav class="nav" id="main-nav">
-        <a href="/index.html" class="nav__link is-active">Início</a>
+      <nav class="nav" id="main-nav" aria-label="Menu principal">
+        <a href="/index.html" class="nav__link">Início</a>
         <a href="/produtos.html" class="nav__link">Produtos</a>
-        <a href="/locacao.html" aria-current="page" class="nav__link">Locação</a>
+        <a href="/locacao.html" class="nav__link is-active" aria-current="page">Locação</a>
         <a href="/solucoes.html" class="nav__link">Soluções</a>
+        <a href="/blog/index.html" class="nav__link">Blog</a>
         <a href="/empresa.html" class="nav__link">Empresa</a>
         <a href="/contato.html" class="nav__btn">Contato</a>
       </nav>
@@ -53,47 +116,110 @@
   </header>
 
   <main>
-    <section style="padding: 100px 20px; text-align: center; min-height: 50vh;">
+    <section class="hero-page">
       <div class="container">
-        <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Locação de Máquinas</h1>
-        <p style="font-size: 1.2rem; color: #666;">Esta página está em construção. Volte em breve!</p>
+        <h1>Locação de Máquinas e Equipamentos</h1>
+        <p>Alugue equipamentos de alta performance e aumente a produtividade da sua equipe sem o custo de aquisição. Opções para todos os tamanhos de áreas.</p>
+        <div style="margin-top:var(--space-5);">
+          <a href="#" data-whatsapp class="btn-wa" style="display:inline-flex;align-items:center;font-size:15px;padding:12px 24px;background:white;color:var(--color-teal-dark);border:none;font-weight:600;border-radius:var(--radius-md);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.553 4.122 1.522 5.857L.057 23.882l6.182-1.621A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.013-1.377l-.36-.214-3.67.963.98-3.576-.235-.37A9.818 9.818 0 0 1 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.419-4.398 9.818-9.818 9.818z"/></svg>
+            Consultar Disponibilidade
+          </a>
+        </div>
       </div>
     </section>
-    </main>
 
-  <footer class="footer">
-    <div class="container footer__grid">
-      <div class="footer__col">
-        <img src="/assets/images/logo/logo-donalu.jpg" alt="Dona Lu">
-        <p>Produtos de limpeza, equipamentos e soluções profissionais de higienização.</p>
-      </div>
-      <div class="footer__col">
-        <h3 class="footer__title">Institucional</h3>
-        <a href="/index.html" class="footer__link">Início</a>
-        <a href="/empresa.html" class="footer__link">A Empresa</a>
-        <a href="/solucoes.html" class="footer__link">Soluções</a>
-        <a href="/contato.html" class="footer__link">Contato</a>
-      </div>
-      <div class="footer__col">
-        <h3 class="footer__title">Produtos</h3>
-        <a href="/produtos.html#limpeza-geral" class="footer__link">Limpeza Geral</a>
-        <a href="/produtos.html#automotiva" class="footer__link">Linha Automotiva</a>
-        <a href="/produtos.html#pisos" class="footer__link">Tratamento de Pisos</a>
-        <a href="/locacao.html" aria-current="page" class="footer__link">Locação de Equipamentos</a>
-      </div>
-      <div class="footer__col">
-        <h3 class="footer__title">Fale Conosco</h3>
-        <a href="#" data-whatsapp class="footer__link">Whatsapp: 17 98132-1919</a>
-        <a href="mailto:contato@donalu.com.br" class="footer__link">contato@donalu.com.br</a>
-        <p style="margin-top: 10px;">Av. Exemplo, 1234<br>São José do Rio Preto, SP</p>
-      </div>
-    </div>
-    <div class="footer__bottom">
+    <section class="section" style="background: var(--color-gray-50); padding-top: var(--space-10);">
       <div class="container">
-        &copy; 2026 Dona Lu. Todos os direitos reservados.
+        <div style="text-align: center; max-width: 600px; margin: 0 auto var(--space-8);">
+          <span class="section-label">Simplicidade e Agilidade</span>
+          <h2 class="text-heading-md" style="color:var(--color-primary);">Como Funciona a Locação?</h2>
+        </div>
+        
+        <div class="grid grid--3-cols" style="gap: var(--space-5);">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3 style="font-family:var(--font-family-heading);font-size:var(--font-size-lg);color:var(--color-secondary);margin-bottom:var(--space-2);">Escolha a Máquina</h3>
+            <p style="color:var(--color-text-secondary);font-size:var(--font-size-sm);line-height:1.5;">Nossa equipe técnica ajuda você a dimensionar o equipamento ideal para a área e piso a ser limpo.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3 style="font-family:var(--font-family-heading);font-size:var(--font-size-lg);color:var(--color-secondary);margin-bottom:var(--space-2);">Receba no Local</h3>
+            <p style="color:var(--color-text-secondary);font-size:var(--font-size-sm);line-height:1.5;">Entregamos o equipamento em sua empresa, realizando o treinamento operacional básico.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3 style="font-family:var(--font-family-heading);font-size:var(--font-size-lg);color:var(--color-secondary);margin-bottom:var(--space-2);">Suporte Completo</h3>
+            <p style="color:var(--color-text-secondary);font-size:var(--font-size-sm);line-height:1.5;">Manutenção inclusa. Se a máquina parar, nós substituímos para sua operação continuar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: var(--space-10);">
+      <div class="container">
+        <div style="margin-bottom: var(--space-6); text-align: center; max-width: 600px; margin-inline: auto;">
+          <h2 class="text-heading-md" style="color:var(--color-primary);">Nossos Equipamentos</h2>
+          <p style="color:var(--color-text-secondary);font-size:var(--font-size-base);">Opções modernas para limpeza de grandes superfícies.</p>
+        </div>
+
+        <div class="grid grid--2-cols" style="gap: var(--space-6);">
+          <div class="machine-card">
+            <div style="background:var(--color-gray-100);padding:var(--space-6);text-align:center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/><path d="M8 22h8"/><path d="M12 18v4"/><path d="M16 4v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V4"/><circle cx="12" cy="4" r="2"/></svg>
+            </div>
+            <div class="machine-card-content">
+              <h3 style="font-family:var(--font-family-heading);font-size:var(--font-size-lg);color:var(--color-primary);margin-bottom:var(--space-2);">Lavadoras Secadoras</h3>
+              <p style="color:var(--color-text-secondary);font-size:var(--font-size-sm);line-height:1.5;margin-bottom:var(--space-3);">Lavam e secam o piso simultaneamente, deixando a área pronta para tráfego. Ideais para supermercados e shoppings.</p>
+              <ul style="list-style:none;padding:0;color:var(--color-text-secondary);display:flex;flex-direction:column;gap:var(--space-2);font-size:var(--font-size-sm);">
+                <li style="display:flex;align-items:center;gap:8px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)"><polyline points="20 6 9 17 4 12"/></svg> Produtividade alta</li>
+                <li style="display:flex;align-items:center;gap:8px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)"><polyline points="20 6 9 17 4 12"/></svg> Economia de água</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="machine-card">
+            <div style="background:var(--color-gray-100);padding:var(--space-6);text-align:center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2v20"/><path d="M2 12h20"/></svg>
+            </div>
+            <div class="machine-card-content">
+              <h3 style="font-family:var(--font-family-heading);font-size:var(--font-size-lg);color:var(--color-primary);margin-bottom:var(--space-2);">Varredeiras Industriais</h3>
+              <p style="color:var(--color-text-secondary);font-size:var(--font-size-sm);line-height:1.5;margin-bottom:var(--space-3);">Coletores de detritos de alta capacidade. Substituem vassouras em grandes áreas externas e pátios.</p>
+              <ul style="list-style:none;padding:0;color:var(--color-text-secondary);display:flex;flex-direction:column;gap:var(--space-2);font-size:var(--font-size-sm);">
+                <li style="display:flex;align-items:center;gap:8px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)"><polyline points="20 6 9 17 4 12"/></svg> Elimina varrição pesada</li>
+                <li style="display:flex;align-items:center;gap:8px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)"><polyline points="20 6 9 17 4 12"/></svg> Modelos variados</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container" style="margin-bottom: var(--space-12);">
+      <div class="cta-banner">
+        <h2 style="font-family:var(--font-family-heading);font-size:clamp(20px, 3vw, 26px);margin-bottom:var(--space-2);">Ainda em dúvida se deve alugar?</h2>
+        <p style="font-size:var(--font-size-base);margin-bottom:var(--space-5);opacity:0.95;">Leia nosso artigo sobre custos, ou fale conosco para uma consultoria grátis.</p>
+        <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
+          <a href="/blog/guia-aluguel-maquinas-limpeza.html" class="btn" style="background:transparent;color:white;border:1px solid white;padding:10px 20px;font-size:15px;border-radius:var(--radius-md);">Ler Artigo no Blog</a>
+          <a href="#" data-whatsapp class="btn-wa" style="background:white;color:var(--color-teal-dark);border:none;padding:10px 20px;font-size:15px;font-weight:600;border-radius:var(--radius-md);">Solicitar Consultoria</a>
+        </div>
       </div>
     </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__grid">
+      <div class="footer__col"><img src="/assets/images/logo/logo-donalu.jpg" alt="Dona Lu" loading="lazy"><p>Distribuidora de produtos de limpeza profissional em São José do Rio Preto, SP.</p></div>
+      <div class="footer__col"><h3 class="footer__title">Categorias</h3><a href="/categoria/pos-obra.html" class="footer__link">Limpeza Pós Obra</a><a href="/categoria/limpeza-geral.html" class="footer__link">Limpeza Geral</a><a href="/locacao.html" class="footer__link">Aluguel de Máquinas</a></div>
+      <div class="footer__col"><h3 class="footer__title">Institucional</h3><a href="/empresa.html" class="footer__link">A Empresa</a><a href="/blog/index.html" class="footer__link">Blog</a><a href="/contato.html" class="footer__link">Contato</a></div>
+      <div class="footer__col"><h3 class="footer__title">Fale Conosco</h3><a href="#" data-whatsapp class="footer__link">WhatsApp: (17) 98132-1919</a><a href="mailto:contato@donalu.com.br" class="footer__link">contato@donalu.com.br</a></div>
+    </div>
+    <div class="footer__bottom"><div class="container">&copy; 2026 Dona Lu. Todos os direitos reservados.</div></div>
   </footer>
 
+  <a href="#" data-whatsapp class="whatsapp-fab" id="whatsapp-fab" aria-label="Falar com a Dona Lu pelo WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.553 4.122 1.522 5.857L.057 23.882l6.182-1.621A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.013-1.377l-.36-.214-3.67.963.98-3.576-.235-.37A9.818 9.818 0 0 1 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.419-4.398 9.818-9.818 9.818z"/></svg>
+    <span class="whatsapp-fab__tooltip">Falar no WhatsApp</span>
+  </a>
 </body>
 </html>

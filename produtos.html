@@ -3,31 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dona Lu — Produtos</title>
-  
-  <meta name="description" content="A Dona Lu oferece as melhores soluções em produtos de limpeza profissional, equipamentos e serviços para empresas, condomínios e indústrias.">
+  <title>Produtos de Limpeza em São José do Rio Preto — Catálogo Completo | Dona Lu</title>
+  <meta name="description" content="Catálogo completo de produtos de limpeza profissional da Dona Lu. Filtre por categoria (Pós Obra, Limpeza Geral, Aluguel), preço e marca. Solicite orçamento via WhatsApp.">
+  <link rel="canonical" href="https://donalu.com.br/produtos.html">
+  <meta property="og:title" content="Catálogo de Produtos de Limpeza | Dona Lu">
+  <meta property="og:description" content="Linha completa de produtos de limpeza profissional. Pós Obra, Limpeza Geral e muito mais. São José do Rio Preto, SP.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donalu.com.br/produtos.html">
+  <meta property="og:image" content="https://donalu.com.br/assets/images/hero/slide-1.jpg">
 
-  <!-- Google Fonts - Poppins -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Catálogo Completo — Dona Lu",
+    "description": "Lista de produtos de limpeza profissional disponíveis na Dona Lu",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"url":"https://donalu.com.br/produto/multiuso-lavanda-500ml.html","name":"Limpador Multiuso Lavanda 500ml"},
+      {"@type":"ListItem","position":2,"url":"https://donalu.com.br/produto/desengordurante-cozinha-1l.html","name":"Desengordurante Cozinha Profissional 1L"},
+      {"@type":"ListItem","position":3,"url":"https://donalu.com.br/produto/sabao-liquido-roupas-3l.html","name":"Sabão Líquido para Roupas 3L"}
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/reset.css">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/layout.css">
   <link rel="stylesheet" href="/assets/css/components.css">
   <link rel="stylesheet" href="/assets/css/pages/home.css">
-
+  <link rel="stylesheet" href="/assets/css/pages/produtos.css">
   <script src="/config/settings.js" defer></script>
   <script src="/assets/js/components/whatsapp.js" defer></script>
   <script src="/assets/js/components/header.js" defer></script>
+  <script src="/assets/js/pages/produtos.js" defer></script>
 </head>
-<body class="page-home">
+<body class="page-produtos">
 
   <div class="topbar">
     <div class="container">
-      Fale Conosco: <a href="#" data-whatsapp id="topbar-wa">17 98132-1919</a> | Produtos de Limpeza Profissional em São José do Rio Preto
+      Fale Conosco: <a href="#" data-whatsapp id="topbar-wa">(17) 98132-1919</a> &nbsp;|&nbsp; Produtos de Limpeza Profissional em São José do Rio Preto
     </div>
   </div>
 
@@ -36,16 +53,15 @@
       <a href="/index.html" class="header__logo">
         <img src="/assets/images/logo/logo-donalu.jpg" alt="Dona Lu" class="header__logo-image">
       </a>
-      
-      <button id="nav-toggle" class="nav__toggle" aria-label="Abrir menu" aria-expanded="false">
-        ☰
+      <button id="nav-toggle" class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
-      
-      <nav class="nav" id="main-nav">
-        <a href="/index.html" class="nav__link is-active">Início</a>
-        <a href="/produtos.html" aria-current="page" class="nav__link">Produtos</a>
+      <nav class="nav" id="main-nav" aria-label="Menu principal">
+        <a href="/index.html" class="nav__link">Início</a>
+        <a href="/produtos.html" class="nav__link is-active" aria-current="page">Produtos</a>
         <a href="/locacao.html" class="nav__link">Locação</a>
         <a href="/solucoes.html" class="nav__link">Soluções</a>
+        <a href="/blog/index.html" class="nav__link">Blog</a>
         <a href="/empresa.html" class="nav__link">Empresa</a>
         <a href="/contato.html" class="nav__btn">Contato</a>
       </nav>
@@ -53,19 +69,255 @@
   </header>
 
   <main>
-    <section style="padding: 100px 20px; text-align: center; min-height: 50vh;">
+    <!-- Breadcrumb -->
+    <div style="background:var(--color-gray-50);padding:12px 0;border-bottom:1px solid var(--color-border);">
       <div class="container">
-        <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Produtos</h1>
-        <p style="font-size: 1.2rem; color: #666;">Esta página está em construção. Volte em breve!</p>
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
+          <span class="breadcrumb__item"><a href="/index.html">Início</a></span>
+          <span class="breadcrumb__separator" aria-hidden="true">›</span>
+          <span class="breadcrumb__item breadcrumb__item--active" aria-current="page">Produtos</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Intro da Página -->
+    <section class="section" style="padding-bottom:0">
+      <div class="container">
+        <h1 style="font-family:var(--font-family-heading);font-size:clamp(28px,4vw,40px);color:var(--color-secondary);margin-bottom:var(--space-4);">Catálogo de Produtos de Limpeza</h1>
+        <p style="font-size:var(--font-size-md);color:var(--color-text-secondary);max-width:720px;line-height:1.7;margin-bottom:var(--space-8);">
+          Bem-vindo ao catálogo completo da <strong>Dona Lu</strong>. Aqui você encontra produtos profissionais de alta performance para limpeza geral, pós-obra e cuidados do lar. Todos com garantia de qualidade e suporte técnico. Use os filtros abaixo para encontrar exatamente o que precisa — e solicite seu orçamento direto pelo WhatsApp.
+        </p>
+
+        <!-- Filtros de Categoria (pill buttons) -->
+        <div class="produtos-filter-cats" role="group" aria-label="Filtrar por categoria">
+          <button class="filter-cat-btn is-active" data-filter-category="all" aria-pressed="true" type="button" id="filter-all">Todos</button>
+          <button class="filter-cat-btn" data-filter-category="pos-obra" aria-pressed="false" type="button" id="filter-pos-obra">Pós Obra</button>
+          <button class="filter-cat-btn" data-filter-category="limpeza-geral" aria-pressed="false" type="button" id="filter-limpeza-geral">Limpeza Geral</button>
+          <button class="filter-cat-btn" data-filter-category="locacao" aria-pressed="false" type="button" id="filter-locacao">Aluguel / Máquinas</button>
+        </div>
       </div>
     </section>
-    </main>
 
-  <footer class="footer">
+    <!-- Grade de Produtos + Sidebar -->
+    <section class="section produtos-layout">
+      <div class="container">
+        <div class="produtos-wrapper">
+
+          <!-- Sidebar de Filtros -->
+          <aside class="produtos-sidebar" aria-label="Filtros de produto">
+            <div class="filter-box">
+              <h2 class="filter-box__title">Filtrar</h2>
+
+              <div class="filter-group">
+                <h3 class="filter-group__label">Faixa de Preço</h3>
+                <div class="price-range">
+                  <div style="display:flex;justify-content:space-between;font-size:var(--font-size-xs);color:var(--color-text-secondary);margin-bottom:var(--space-2);">
+                    <span>De: <strong data-price-min-val>R$ 0</strong></span>
+                    <span>Até: <strong data-price-max-val>Sem limite</strong></span>
+                  </div>
+                  <label class="sr-only" for="price-max-range">Preço máximo</label>
+                  <input type="range" id="price-max-range" data-filter-price-max min="0" max="200" step="5" value="9999" style="width:100%;">
+                </div>
+              </div>
+
+              <div class="filter-group">
+                <h3 class="filter-group__label">Marca</h3>
+                <label class="filter-check">
+                  <input type="checkbox" data-filter-brand value="start-quimica">
+                  <span>Start Química</span>
+                </label>
+                <label class="filter-check">
+                  <input type="checkbox" data-filter-brand value="dona-lu">
+                  <span>Dona Lu (Linha Própria)</span>
+                </label>
+              </div>
+
+              <button type="button" data-filter-clear class="btn btn--outline-blue btn--sm btn--full" id="clear-filters-btn" style="margin-top:var(--space-4);">
+                Limpar Filtros
+              </button>
+            </div>
+          </aside>
+
+          <!-- Grid de Produtos -->
+          <div class="produtos-main">
+            <div class="produtos-toolbar">
+              <p class="produtos-count" data-product-count aria-live="polite" aria-atomic="true">6 produtos encontrados</p>
+              <div style="display:flex;align-items:center;gap:var(--space-3);">
+                <label for="sort-select" class="sr-only">Ordenar por</label>
+                <select id="sort-select" data-filter-sort class="form-select" style="padding:8px 36px 8px 12px;min-width:160px;">
+                  <option value="default">Relevância</option>
+                  <option value="price-asc">Menor preço</option>
+                  <option value="price-desc">Maior preço</option>
+                  <option value="name-asc">A–Z</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="product-grid" data-product-grid>
+
+              <!-- P1 -->
+              <article class="product-card" data-product-card data-category="limpeza-geral" data-brand="dona-lu" data-price="18.90" data-name="Multiuso Lavanda 500ml" itemscope itemtype="https://schema.org/Product">
+                <div class="product-card__img">
+                  <div class="product-card__badges"><span class="badge badge-new">Novo</span></div>
+                  <a href="/produto/multiuso-lavanda-500ml.html">
+                    <img src="/assets/images/products/multiuso-lavanda-500ml.jpg" alt="Spray Multiuso Lavanda 500ml — limpador universal perfumado" width="400" height="400" loading="lazy" decoding="async" itemprop="image">
+                  </a>
+                </div>
+                <div class="product-card__body">
+                  <span class="product-card__cat" itemprop="category">Limpeza Geral</span>
+                  <h3 class="product-card__name" itemprop="name"><a href="/produto/multiuso-lavanda-500ml.html" style="text-decoration:none;color:inherit;">Multiuso Lavanda 500ml</a></h3>
+                  <div class="product-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="BRL"><meta itemprop="availability" content="https://schema.org/InStock">
+                    <span class="price-current" itemprop="price" content="18.90">R$ 18,90</span>
+                  </div>
+                  <div class="product-card__actions">
+                    <a href="#" data-whatsapp-product="Multiuso Lavanda 500ml" class="btn-wa" id="wa-p1">Pedir no WhatsApp</a>
+                    <a href="/produto/multiuso-lavanda-500ml.html" class="btn-detail" id="detail-p1">Ver</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- P2 -->
+              <article class="product-card" data-product-card data-category="limpeza-geral" data-brand="start-quimica" data-price="32.50" data-name="Desengordurante Cozinha 1L" itemscope itemtype="https://schema.org/Product">
+                <div class="product-card__img">
+                  <div class="product-card__badges"><span class="badge badge-hit">Mais Vendido</span></div>
+                  <a href="/produto/desengordurante-cozinha-1l.html">
+                    <img src="/assets/images/products/desengordurante-cozinha-1l.jpg" alt="Desengordurante Cozinha Profissional 1L spray laranja — remove gordura difícil" width="400" height="400" loading="lazy" decoding="async" itemprop="image">
+                  </a>
+                </div>
+                <div class="product-card__body">
+                  <span class="product-card__cat" itemprop="category">Limpeza Geral</span>
+                  <h3 class="product-card__name" itemprop="name"><a href="/produto/desengordurante-cozinha-1l.html" style="text-decoration:none;color:inherit;">Desengordurante Cozinha 1L</a></h3>
+                  <div class="product-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="BRL"><meta itemprop="availability" content="https://schema.org/InStock">
+                    <span class="price-current" itemprop="price" content="32.50">R$ 32,50</span>
+                    <span class="price-old">R$ 38,00</span>
+                  </div>
+                  <div class="product-card__actions">
+                    <a href="#" data-whatsapp-product="Desengordurante Cozinha 1L" class="btn-wa" id="wa-p2">Pedir no WhatsApp</a>
+                    <a href="/produto/desengordurante-cozinha-1l.html" class="btn-detail" id="detail-p2">Ver</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- P3 -->
+              <article class="product-card" data-product-card data-category="limpeza-geral" data-brand="dona-lu" data-price="45.00" data-name="Sabão Líquido Roupas 3L" itemscope itemtype="https://schema.org/Product">
+                <div class="product-card__img">
+                  <div class="product-card__badges"><span class="badge badge-sale">Promoção</span></div>
+                  <a href="/produto/sabao-liquido-roupas-3l.html">
+                    <img src="/assets/images/products/sabao-liquido-roupas-3l.jpg" alt="Sabão Líquido para Roupas 3L galão azul — rendimento extra" width="400" height="400" loading="lazy" decoding="async" itemprop="image">
+                  </a>
+                </div>
+                <div class="product-card__body">
+                  <span class="product-card__cat" itemprop="category">Limpeza Geral</span>
+                  <h3 class="product-card__name" itemprop="name"><a href="/produto/sabao-liquido-roupas-3l.html" style="text-decoration:none;color:inherit;">Sabão Líquido Roupas 3L</a></h3>
+                  <div class="product-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="BRL"><meta itemprop="availability" content="https://schema.org/InStock">
+                    <span class="price-current" itemprop="price" content="45.00">R$ 45,00</span>
+                    <span class="price-old">R$ 55,00</span>
+                  </div>
+                  <div class="product-card__actions">
+                    <a href="#" data-whatsapp-product="Sabão Líquido Roupas 3L" class="btn-wa" id="wa-p3">Pedir no WhatsApp</a>
+                    <a href="/produto/sabao-liquido-roupas-3l.html" class="btn-detail" id="detail-p3">Ver</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- P4 Pós Obra -->
+              <article class="product-card" data-product-card data-category="pos-obra" data-brand="start-quimica" data-price="58.00" data-name="Removedor de Cimento 1L" itemscope itemtype="https://schema.org/Product">
+                <div class="product-card__img">
+                  <div class="product-card__badges"><span class="badge badge-hit">Especialista</span></div>
+                  <a href="/categoria/pos-obra.html">
+                    <img src="/assets/images/products/multiuso-lavanda-500ml.jpg" alt="Removedor de Cimento e Argamassa 1L — produto para limpeza pós obra" width="400" height="400" loading="lazy" decoding="async" itemprop="image">
+                  </a>
+                </div>
+                <div class="product-card__body">
+                  <span class="product-card__cat" itemprop="category">Pós Obra</span>
+                  <h3 class="product-card__name" itemprop="name"><a href="/categoria/pos-obra.html" style="text-decoration:none;color:inherit;">Removedor de Cimento 1L</a></h3>
+                  <div class="product-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="BRL"><meta itemprop="availability" content="https://schema.org/InStock">
+                    <span class="price-current" itemprop="price" content="58.00">R$ 58,00</span>
+                  </div>
+                  <div class="product-card__actions">
+                    <a href="#" data-whatsapp-product="Removedor de Cimento 1L" class="btn-wa" id="wa-p4">Pedir no WhatsApp</a>
+                    <a href="/categoria/pos-obra.html" class="btn-detail" id="detail-p4">Ver</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- P5 Pós Obra -->
+              <article class="product-card" data-product-card data-category="pos-obra" data-brand="start-quimica" data-price="72.90" data-name="Detergente Antiferrugem 5L" itemscope itemtype="https://schema.org/Product">
+                <div class="product-card__img">
+                  <a href="/categoria/pos-obra.html">
+                    <img src="/assets/images/products/desengordurante-cozinha-1l.jpg" alt="Detergente Antiferrugem 5L — remove ferrugem e manchas de obra" width="400" height="400" loading="lazy" decoding="async" itemprop="image">
+                  </a>
+                </div>
+                <div class="product-card__body">
+                  <span class="product-card__cat" itemprop="category">Pós Obra</span>
+                  <h3 class="product-card__name" itemprop="name"><a href="/categoria/pos-obra.html" style="text-decoration:none;color:inherit;">Detergente Antiferrugem 5L</a></h3>
+                  <div class="product-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="BRL"><meta itemprop="availability" content="https://schema.org/InStock">
+                    <span class="price-current" itemprop="price" content="72.90">R$ 72,90</span>
+                  </div>
+                  <div class="product-card__actions">
+                    <a href="#" data-whatsapp-product="Detergente Antiferrugem 5L" class="btn-wa" id="wa-p5">Pedir no WhatsApp</a>
+                    <a href="/categoria/pos-obra.html" class="btn-detail" id="detail-p5">Ver</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- P6 Limpeza Geral -->
+              <article class="product-card" data-product-card data-category="limpeza-geral" data-brand="start-quimica" data-price="25.00" data-name="Desinfetante Hospitalar 2L" itemscope itemtype="https://schema.org/Product">
+                <div class="product-card__img">
+                  <a href="/categoria/limpeza-geral.html">
+                    <img src="/assets/images/products/sabao-liquido-roupas-3l.jpg" alt="Desinfetante Hospitalar 2L — bactericida e fungicida de alta eficácia" width="400" height="400" loading="lazy" decoding="async" itemprop="image">
+                  </a>
+                </div>
+                <div class="product-card__body">
+                  <span class="product-card__cat" itemprop="category">Limpeza Geral</span>
+                  <h3 class="product-card__name" itemprop="name"><a href="/categoria/limpeza-geral.html" style="text-decoration:none;color:inherit;">Desinfetante Hospitalar 2L</a></h3>
+                  <div class="product-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="BRL"><meta itemprop="availability" content="https://schema.org/InStock">
+                    <span class="price-current" itemprop="price" content="25.00">R$ 25,00</span>
+                  </div>
+                  <div class="product-card__actions">
+                    <a href="#" data-whatsapp-product="Desinfetante Hospitalar 2L" class="btn-wa" id="wa-p6">Pedir no WhatsApp</a>
+                    <a href="/categoria/limpeza-geral.html" class="btn-detail" id="detail-p6">Ver</a>
+                  </div>
+                </div>
+              </article>
+
+            </div><!-- /product-grid -->
+          </div><!-- /produtos-main -->
+        </div><!-- /produtos-wrapper -->
+      </div>
+    </section>
+
+    <!-- Texto SEO da Categoria -->
+    <section class="section" style="background:var(--color-gray-50);">
+      <div class="container" style="max-width:800px;">
+        <h2 style="font-family:var(--font-family-heading);font-size:clamp(20px,3vw,28px);color:var(--color-secondary);margin-bottom:var(--space-6);">Por que Escolher a Dona Lu para seus Produtos de Limpeza?</h2>
+        <p style="color:var(--color-text-secondary);line-height:1.8;margin-bottom:var(--space-4);">
+          A <strong>Dona Lu</strong> atua há anos como distribuidora de produtos de limpeza profissional em São José do Rio Preto e região noroeste de São Paulo. Nosso diferencial está na curadoria rigorosa dos produtos que distribuímos: trabalhamos apenas com marcas renomadas como a <strong>Start Química</strong>, garantindo eficácia comprovada e segurança para usuários e ambiente.
+        </p>
+        <p style="color:var(--color-text-secondary);line-height:1.8;margin-bottom:var(--space-4);">
+          Atendemos condomínios residenciais, empresas de serviços de limpeza, supermercados, clínicas, restaurantes e usuários domésticos que buscam resultado profissional. Nossa equipe técnica auxilia na escolha do produto mais adequado para cada superfície e tipo de sujidade, evitando desperdício e danos ao substrato.
+        </p>
+        <p style="color:var(--color-text-secondary);line-height:1.8;margin-bottom:var(--space-4);">
+          Todos os produtos do nosso catálogo possuem ficha técnica disponível, com instruções de diluição, EPI necessário e descarte correto — fundamentais para a segurança de quem aplica e conformidade com a legislação ambiental.
+        </p>
+        <p style="color:var(--color-text-secondary);line-height:1.8;">
+          Precisa de um volume maior? Entre em contato para orçamento de atacado. Trabalhamos com pedidos mínimos acessíveis e entregamos em toda a região de São José do Rio Preto. <a href="/contato.html" style="color:var(--color-primary);font-weight:600;">Fale conosco →</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
     <div class="container footer__grid">
       <div class="footer__col">
-        <img src="/assets/images/logo/logo-donalu.jpg" alt="Dona Lu">
-        <p>Produtos de limpeza, equipamentos e soluções profissionais de higienização.</p>
+        <img src="/assets/images/logo/logo-donalu.jpg" alt="Dona Lu" loading="lazy">
+        <p>Distribuidora de produtos de limpeza profissional em São José do Rio Preto, SP.</p>
       </div>
       <div class="footer__col">
         <h3 class="footer__title">Institucional</h3>
@@ -75,25 +327,33 @@
         <a href="/contato.html" class="footer__link">Contato</a>
       </div>
       <div class="footer__col">
-        <h3 class="footer__title">Produtos</h3>
-        <a href="/produtos.html#limpeza-geral" class="footer__link">Limpeza Geral</a>
-        <a href="/produtos.html#automotiva" class="footer__link">Linha Automotiva</a>
-        <a href="/produtos.html#pisos" class="footer__link">Tratamento de Pisos</a>
-        <a href="/locacao.html" class="footer__link">Locação de Equipamentos</a>
+        <h3 class="footer__title">Categorias</h3>
+        <a href="/categoria/pos-obra.html" class="footer__link">Limpeza Pós Obra</a>
+        <a href="/categoria/limpeza-geral.html" class="footer__link">Limpeza Geral</a>
+        <a href="/locacao.html" class="footer__link">Aluguel de Máquinas</a>
       </div>
       <div class="footer__col">
         <h3 class="footer__title">Fale Conosco</h3>
-        <a href="#" data-whatsapp class="footer__link">Whatsapp: 17 98132-1919</a>
+        <a href="#" data-whatsapp class="footer__link">WhatsApp: (17) 98132-1919</a>
         <a href="mailto:contato@donalu.com.br" class="footer__link">contato@donalu.com.br</a>
-        <p style="margin-top: 10px;">Av. Exemplo, 1234<br>São José do Rio Preto, SP</p>
+        <address style="margin-top:10px;font-style:normal;font-size:var(--font-size-sm);color:var(--color-gray-300);">
+          Av. Exemplo, 1234 — São José do Rio Preto, SP
+        </address>
       </div>
     </div>
     <div class="footer__bottom">
       <div class="container">
-        &copy; 2026 Dona Lu. Todos os direitos reservados.
+        &copy; 2026 Dona Lu. Todos os direitos reservados. |
+        <a href="/privacidade.html" class="footer__link" style="display:inline;color:var(--color-gray-400);">Privacidade</a> ·
+        <a href="/troca-devolucao.html" class="footer__link" style="display:inline;color:var(--color-gray-400);">Trocas e Devoluções</a>
       </div>
     </div>
   </footer>
+
+  <a href="#" data-whatsapp class="whatsapp-fab" id="whatsapp-fab" aria-label="Falar com a Dona Lu pelo WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.553 4.122 1.522 5.857L.057 23.882l6.182-1.621A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.013-1.377l-.36-.214-3.67.963.98-3.576-.235-.37A9.818 9.818 0 0 1 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.419-4.398 9.818-9.818 9.818z"/></svg>
+    <span class="whatsapp-fab__tooltip">Falar no WhatsApp</span>
+  </a>
 
 </body>
 </html>

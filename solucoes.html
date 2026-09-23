@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dona Lu — Soluções</title>
+  <title>Dona Lu — Soluções de Limpeza Profissional</title>
+  <meta name="description" content="Serviços especializados de limpeza pós-obra e limpeza geral para empresas, hospitais e condomínios.">
+  <link rel="canonical" href="https://donalu.com.br/solucoes.html">
+  <meta property="og:title" content="Dona Lu — Nossas Soluções">
+  <meta property="og:description" content="Serviços especializados de limpeza pós-obra e limpeza geral para empresas e condomínios.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donalu.com.br/solucoes.html">
+  <meta property="og:image" content="https://donalu.com.br/assets/images/services/pos_obra.jpg">
   
-  <meta name="description" content="A Dona Lu oferece as melhores soluções em produtos de limpeza profissional, equipamentos e serviços para empresas, condomínios e indústrias.">
-
-  <!-- Google Fonts - Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="/assets/css/reset.css">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/layout.css">
@@ -22,30 +25,95 @@
   <script src="/config/settings.js" defer></script>
   <script src="/assets/js/components/whatsapp.js" defer></script>
   <script src="/assets/js/components/header.js" defer></script>
+
+  <style>
+    .hero-page {
+      background: linear-gradient(rgba(0, 48, 63, 0.7), rgba(0, 48, 63, 0.9)), url('/assets/images/hero/slide-3.jpg') center/cover;
+      color: white;
+      padding: var(--space-10) 0;
+      text-align: center;
+    }
+    .hero-page h1 {
+      font-family: var(--font-family-heading);
+      font-size: clamp(28px, 4vw, 40px);
+      margin-bottom: var(--space-3);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero-page p {
+      font-size: var(--font-size-base);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+    .service-img {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .service-img img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+      transition: transform 0.5s ease;
+    }
+    .service-img:hover img {
+      transform: scale(1.05);
+    }
+    .service-feature-list {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-6) 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .service-feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: var(--font-size-base);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+    .service-feature-list li svg {
+      color: var(--color-teal);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .cta-banner {
+      background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-primary) 100%);
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: var(--space-8) var(--space-6);
+      text-align: center;
+      margin: var(--space-10) auto var(--space-12);
+      box-shadow: var(--shadow-md);
+      max-width: 800px;
+    }
+  </style>
 </head>
-<body class="page-home">
+<body>
 
   <div class="topbar">
-    <div class="container">
-      Fale Conosco: <a href="#" data-whatsapp id="topbar-wa">17 98132-1919</a> | Produtos de Limpeza Profissional em São José do Rio Preto
-    </div>
+    <div class="container">Fale Conosco: <a href="#" data-whatsapp id="topbar-wa">(17) 98132-1919</a> &nbsp;|&nbsp; Produtos de Limpeza Profissional em São José do Rio Preto</div>
   </div>
 
   <header class="header">
     <div class="container">
-      <a href="/index.html" class="header__logo">
-        <img src="/assets/images/logo/logo-donalu.jpg" alt="Dona Lu" class="header__logo-image">
-      </a>
-      
-      <button id="nav-toggle" class="nav__toggle" aria-label="Abrir menu" aria-expanded="false">
-        ☰
+      <a href="/index.html" class="header__logo"><img src="/assets/images/logo/logo-donalu.jpg" alt="Dona Lu" class="header__logo-image"></a>
+      <button id="nav-toggle" class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
-      
-      <nav class="nav" id="main-nav">
-        <a href="/index.html" class="nav__link is-active">Início</a>
+      <nav class="nav" id="main-nav" aria-label="Menu principal">
+        <a href="/index.html" class="nav__link">Início</a>
         <a href="/produtos.html" class="nav__link">Produtos</a>
         <a href="/locacao.html" class="nav__link">Locação</a>
-        <a href="/solucoes.html" aria-current="page" class="nav__link">Soluções</a>
+        <a href="/solucoes.html" class="nav__link is-active" aria-current="page">Soluções</a>
+        <a href="/blog/index.html" class="nav__link">Blog</a>
         <a href="/empresa.html" class="nav__link">Empresa</a>
         <a href="/contato.html" class="nav__btn">Contato</a>
       </nav>
@@ -53,47 +121,107 @@
   </header>
 
   <main>
-    <section style="padding: 100px 20px; text-align: center; min-height: 50vh;">
+    <section class="hero-page">
       <div class="container">
-        <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Soluções</h1>
-        <p style="font-size: 1.2rem; color: #666;">Esta página está em construção. Volte em breve!</p>
+        <h1>Terceirização e Serviços Especializados</h1>
+        <p>Soluções completas de limpeza para construtoras, empresas, hospitais e condomínios. Garantia de qualidade técnica com os melhores produtos do mercado.</p>
+        <div style="margin-top:var(--space-5);">
+          <a href="/contato.html" class="btn" style="display:inline-flex;font-size:16px;padding:12px 24px;background:var(--color-teal);color:white;border:none;border-radius:var(--radius-md);">Agendar Visita Técnica</a>
+        </div>
       </div>
     </section>
-    </main>
 
-  <footer class="footer">
-    <div class="container footer__grid">
-      <div class="footer__col">
-        <img src="/assets/images/logo/logo-donalu.jpg" alt="Dona Lu">
-        <p>Produtos de limpeza, equipamentos e soluções profissionais de higienização.</p>
-      </div>
-      <div class="footer__col">
-        <h3 class="footer__title">Institucional</h3>
-        <a href="/index.html" class="footer__link">Início</a>
-        <a href="/empresa.html" class="footer__link">A Empresa</a>
-        <a href="/solucoes.html" aria-current="page" class="footer__link">Soluções</a>
-        <a href="/contato.html" class="footer__link">Contato</a>
-      </div>
-      <div class="footer__col">
-        <h3 class="footer__title">Produtos</h3>
-        <a href="/produtos.html#limpeza-geral" class="footer__link">Limpeza Geral</a>
-        <a href="/produtos.html#automotiva" class="footer__link">Linha Automotiva</a>
-        <a href="/produtos.html#pisos" class="footer__link">Tratamento de Pisos</a>
-        <a href="/locacao.html" class="footer__link">Locação de Equipamentos</a>
-      </div>
-      <div class="footer__col">
-        <h3 class="footer__title">Fale Conosco</h3>
-        <a href="#" data-whatsapp class="footer__link">Whatsapp: 17 98132-1919</a>
-        <a href="mailto:contato@donalu.com.br" class="footer__link">contato@donalu.com.br</a>
-        <p style="margin-top: 10px;">Av. Exemplo, 1234<br>São José do Rio Preto, SP</p>
-      </div>
-    </div>
-    <div class="footer__bottom">
+    <!-- Limpeza Pós-Obra -->
+    <section class="section" style="padding-top: var(--space-10);">
       <div class="container">
-        &copy; 2026 Dona Lu. Todos os direitos reservados.
+        <div class="grid grid--2-cols" style="align-items: center; gap: var(--space-8);">
+          <div class="service-img" style="max-width:450px; margin:0 auto;">
+            <img src="/assets/images/services/pos_obra.jpg" alt="Equipe realizando limpeza pós-obra em escritório recém construído">
+          </div>
+          <div>
+            <span class="section-label" style="display:inline-block;margin-bottom:var(--space-2);">Especialistas</span>
+            <h2 class="text-heading-md" style="color:var(--color-primary);margin-bottom:var(--space-3);">Limpeza Pós-Obra</h2>
+            <p style="color:var(--color-text);line-height:1.6;margin-bottom:var(--space-3);">O fim da obra não precisa ser dor de cabeça. Nossa equipe em <strong>Limpeza Pós-Obra</strong> utiliza técnicas adequadas e produtos químicos de alta tecnologia para remover sujidades pesadas sem danificar revestimentos novos.</p>
+            <p style="color:var(--color-text);line-height:1.6;margin-bottom:var(--space-3);">Entregamos o imóvel pronto para mudança, higienizado e livre do pó fino.</p>
+            
+            <ul class="service-feature-list" style="margin:var(--space-4) 0;">
+              <li style="color:var(--color-text-secondary);font-size:var(--font-size-sm);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Remoção segura de respingos de tinta e cimento
+              </li>
+              <li style="color:var(--color-text-secondary);font-size:var(--font-size-sm);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Limpeza profunda e desincrustação de pisos
+              </li>
+              <li style="color:var(--color-text-secondary);font-size:var(--font-size-sm);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Higienização de vidros e caixilhos
+              </li>
+            </ul>
+            <a href="#" data-whatsapp class="btn-wa" style="margin-top:var(--space-2);font-size:15px;padding:10px 20px;display:inline-block;border-radius:var(--radius-md);">Orçamento Pós-Obra</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Limpeza Geral -->
+    <section class="section" style="background: var(--color-gray-50); padding-top: var(--space-10);">
+      <div class="container">
+        <div class="grid grid--2-cols" style="align-items: center; gap: var(--space-8);">
+          <div style="order: 2; max-width:450px; margin:0 auto;" class="service-img">
+            <img src="/assets/images/services/limpeza_geral.jpg" alt="Profissional realizando limpeza geral de manutenção em condomínio">
+          </div>
+          <div style="order: 1;">
+            <span class="section-label" style="display:inline-block;margin-bottom:var(--space-2);">Manutenção Diária</span>
+            <h2 class="text-heading-md" style="color:var(--color-primary);margin-bottom:var(--space-3);">Limpeza Geral e Conservação</h2>
+            <p style="color:var(--color-text);line-height:1.6;margin-bottom:var(--space-3);">Mantenha seu espaço corporativo, escola ou condomínio sempre impecável com o nosso serviço de <strong>Limpeza e Conservação</strong>.</p>
+            <p style="color:var(--color-text);line-height:1.6;margin-bottom:var(--space-3);">Elaboramos cronogramas específicos, utilizando maquinário avançado e produtos que prolongam a vida útil das superfícies e garantem a biossegurança.</p>
+
+            <ul class="service-feature-list" style="margin:var(--space-4) 0;">
+              <li style="color:var(--color-text-secondary);font-size:var(--font-size-sm);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Sanitização e higienização de áreas críticas
+              </li>
+              <li style="color:var(--color-text-secondary);font-size:var(--font-size-sm);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Tratamento e revitalização de pisos
+              </li>
+              <li style="color:var(--color-text-secondary);font-size:var(--font-size-sm);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Fornecimento de insumos sob demanda
+              </li>
+            </ul>
+            <a href="#" data-whatsapp class="btn-wa" style="margin-top:var(--space-2);font-size:15px;padding:10px 20px;display:inline-block;border-radius:var(--radius-md);">Falar com Consultor</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="cta-banner">
+        <h2 style="font-family:var(--font-family-heading);font-size:clamp(20px, 3vw, 26px);margin-bottom:var(--space-2);">Cada cliente é único. Nossa solução também.</h2>
+        <p style="font-size:var(--font-size-base);margin-bottom:var(--space-5);opacity:0.95;">Agende uma visita técnica. Nossa equipe mapeará suas necessidades e apresentará o melhor escopo de serviço.</p>
+        <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
+          <a href="/contato.html" class="btn" style="background:white;color:var(--color-teal-dark);border:none;padding:10px 20px;font-size:15px;font-weight:600;border-radius:var(--radius-md);">Agendar Visita</a>
+          <a href="#" data-whatsapp class="btn-wa" style="background:transparent;color:white;border:1px solid white;padding:10px 20px;font-size:15px;border-radius:var(--radius-md);">Tirar Dúvidas no WhatsApp</a>
+        </div>
       </div>
     </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__grid">
+      <div class="footer__col"><img src="/assets/images/logo/logo-donalu.jpg" alt="Dona Lu" loading="lazy"><p>Distribuidora de produtos de limpeza profissional em São José do Rio Preto, SP.</p></div>
+      <div class="footer__col"><h3 class="footer__title">Categorias</h3><a href="/categoria/pos-obra.html" class="footer__link">Limpeza Pós Obra</a><a href="/categoria/limpeza-geral.html" class="footer__link">Limpeza Geral</a><a href="/locacao.html" class="footer__link">Aluguel de Máquinas</a></div>
+      <div class="footer__col"><h3 class="footer__title">Institucional</h3><a href="/empresa.html" class="footer__link">A Empresa</a><a href="/blog/index.html" class="footer__link">Blog</a><a href="/contato.html" class="footer__link">Contato</a></div>
+      <div class="footer__col"><h3 class="footer__title">Fale Conosco</h3><a href="#" data-whatsapp class="footer__link">WhatsApp: (17) 98132-1919</a><a href="mailto:contato@donalu.com.br" class="footer__link">contato@donalu.com.br</a></div>
+    </div>
+    <div class="footer__bottom"><div class="container">&copy; 2026 Dona Lu. Todos os direitos reservados.</div></div>
   </footer>
 
+  <a href="#" data-whatsapp class="whatsapp-fab" id="whatsapp-fab" aria-label="Falar com a Dona Lu pelo WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.553 4.122 1.522 5.857L.057 23.882l6.182-1.621A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.013-1.377l-.36-.214-3.67.963.98-3.576-.235-.37A9.818 9.818 0 0 1 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.419-4.398 9.818-9.818 9.818z"/></svg>
+    <span class="whatsapp-fab__tooltip">Falar no WhatsApp</span>
+  </a>
 </body>
 </html>

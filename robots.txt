@@ -1,0 +1,12 @@
+User-agent: *
+Disallow:
+
+# Não indexar páginas de confirmação ou admin (se houver no futuro)
+Disallow: /admin/
+Disallow: /config/
+
+# Sitemap
+Sitemap: https://www.donalu.com.br/sitemap.xml
+
+# Crawl-delay (opcional, cortesia para bots)
+Crawl-delay: 1
