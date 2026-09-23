@@ -255,4 +255,10 @@
     padding-top: 12px;
     padding-bottom: 12px;
   }
+  
+  /* Aumentar o logo no celular */
+  .header__logo-image {
+    height: 60px !important;
+    max-height: 8vh;
+  }
 }
