@@ -20,10 +20,11 @@
 
     if (!track || slides.length === 0) return;
 
-    let current   = 0;
-    let timer     = null;
-    let isHovered = false;
-    let dots      = [];
+    let current        = 0;
+    let timer          = null;
+    let isHovered      = false;
+    let isPausedManual = false;
+    let dots           = [];
 
     /* ---- Criar dots ---- */
     if (dotsContainer) {
@@ -70,6 +71,7 @@
     function prev() { goTo(current - 1); }
 
     function startTimer() {
+      if (isPausedManual) return;
       if (timer) clearInterval(timer);
       timer = setInterval(() => {
         if (!isHovered) next();
@@ -92,6 +94,22 @@
     if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); startTimer(); });
     if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); startTimer(); });
 
+    const pauseBtn = carousel.querySelector('[data-carousel-pause]');
+    if (pauseBtn) {
+      pauseBtn.addEventListener('click', () => {
+        isPausedManual = !isPausedManual;
+        if (isPausedManual) {
+          stopTimer();
+          pauseBtn.setAttribute('aria-label', 'Reproduzir carrossel');
+          pauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+        } else {
+          startTimer();
+          pauseBtn.setAttribute('aria-label', 'Pausar carrossel');
+          pauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+        }
+      });
+    }
+
     /* ---- Teclado ---- */
     carousel.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft')  { prev(); startTimer(); }
@@ -104,12 +122,21 @@
     carousel.addEventListener('focusin',    () => { isHovered = true; });
     carousel.addEventListener('focusout',   () => { isHovered = false; });
 
-    /* ---- Swipe touch ---- */
+    /* ---- Swipe touch melhorado (evita conflito com rolagem vertical) ---- */
     let touchStartX = 0;
-    carousel.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    let touchStartY = 0;
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
     carousel.addEventListener('touchend', (e) => {
-      const diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); startTimer(); }
+      const diffX = touchStartX - e.changedTouches[0].clientX;
+      const diffY = touchStartY - e.changedTouches[0].clientY;
+      // Só avança/retrocede se o gesto for predominantemente horizontal e superior a 40px
+      if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+        diffX > 0 ? next() : prev();
+        startTimer();
+      }
     }, { passive: true });
 
     /* ---- Autoplay ---- */

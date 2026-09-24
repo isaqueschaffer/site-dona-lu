@@ -1,0 +1,15 @@
+/* Logo do Header */
+    .header__logo-image {
+      width: 60px;
+      height: auto;
+      display: block; 
+      position: relative;
+      top: 5px;
+    }
+    /* Menu do Header */
+    .nav__link,
+    .nav__btn {
+      font-size: 19px;
+      position: relative;
+      top: 5px;
+    }

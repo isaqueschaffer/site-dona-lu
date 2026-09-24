@@ -5,16 +5,59 @@
 
 /* =========================================
    HERO CAROUSEL — Sem CLS, sem autoplay agressivo
-   Altura reservada antes do JS carregar
+   Ocupa de ponta a ponta na vertical (100dvh)
 ========================================= */
 .hero-carousel {
   position: relative;
   overflow: hidden;
   background-color: #0050A0; /* fallback cor enquanto carrega */
-  /* Reserva de altura para evitar CLS no LCP */
-  aspect-ratio: 16 / 6;
-  min-height: 340px;
-  max-height: 560px;
+  /* Altura total da tela (100% da viewport com o header sobreposto) */
+  height: 100vh;
+  height: 100dvh;
+  min-height: 520px;
+}
+/* Logo do Header */
+.header__logo-image {
+  width: 100px;
+  height: auto;
+  display: block;
+  position: relative;
+  top: 30px;
+}
+/* Menu do Header */
+.nav__link,
+.nav__btn {
+  font-size: 19px;
+  position: relative;
+  top: 30px;
+}
+
+/* ===== HERO CAROUSEL ===== */
+.hero-carousel {
+  width: 100%;
+  height: 420px; /* diminua aqui para deixar o banner mais baixo */
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel__track {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel__slide {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel__slide > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
 }
 
 .carousel__track {
@@ -34,8 +77,9 @@
 .carousel__slide img {
   width: 100%;
   height: 100%;
+  max-width: none;
   object-fit: cover;
-  object-position: center;
+  object-position: center center;
   display: block;
 }
 
@@ -62,7 +106,7 @@
   }
 }
 
-/* Conteúdo do slide */
+/* Conteúdo do slide com respiro superior para o header sobreposto */
 .carousel__content {
   position: absolute;
   inset: 0;
@@ -70,6 +114,7 @@
   display: flex;
   align-items: center;
   padding: 0 clamp(20px, 5vw, 80px);
+  padding-top: clamp(70px, 8vw, 90px);
 }
 
 .carousel__text {
@@ -177,9 +222,42 @@
   transform: scale(1.3);
 }
 
+@media (max-width: 768px) {
+  .hero-carousel {
+    min-height: 460px;
+  }
+
+  .carousel__content {
+    padding: 0 clamp(16px, 4vw, 32px);
+  }
+
+  .carousel__text {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 600px) {
   .carousel__btn { display: none; }
-  .carousel__content { align-items: flex-end; padding-bottom: 56px; }
+  .carousel__content {
+    align-items: center;
+    padding-bottom: 48px;
+    padding-top: 24px;
+  }
+  .carousel__title {
+    font-size: clamp(22px, 5.5vw, 32px);
+    margin-bottom: var(--space-3);
+  }
+  .carousel__desc {
+    font-size: 14px;
+    margin-bottom: var(--space-4);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .carousel__dots {
+    bottom: 12px;
+  }
 }
 
 /* =========================================
@@ -437,7 +515,7 @@
   transition: box-shadow var(--transition-base), transform var(--transition-base);
 }
 .blog-card:hover {
-  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
   transform: translateY(-4px);
 }
 
