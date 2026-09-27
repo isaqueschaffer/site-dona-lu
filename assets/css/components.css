@@ -62,8 +62,8 @@
   color: var(--color-white);
 }
 .btn--primary:hover {
-  background-color: var(--color-secondary-dark);
-  border-color: var(--color-secondary-dark);
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
   box-shadow: 0 4px 12px rgba(42, 156, 103, 0.3);
 }
 
@@ -181,7 +181,7 @@
 }
 
 .section-title__label--purple {
-  color: var(--color-yellow);
+  color: var(--color-accent);
 }
 
 .section-title__h2 {
@@ -330,8 +330,8 @@
 }
 
 .category-card__icon--purple {
-  background-color: var(--color-yellow);
-  color: var(--color-yellow);
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
 }
 
 .category-card__icon svg {
@@ -545,7 +545,7 @@
 
 .badge--green {
   background-color: var(--color-primary-light);
-  color: var(--color-secondary-dark);
+  color: var(--color-primary-dark);
 }
 
 .badge--blue {
@@ -554,8 +554,8 @@
 }
 
 .badge--purple {
-  background-color: var(--color-yellow);
-  color: var(--color-yellow);
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
 }
 
 .badge--gray {
@@ -826,7 +826,7 @@
 
 .alert--success {
   background-color: var(--color-primary-light);
-  color: var(--color-secondary-dark);
+  color: var(--color-primary-dark);
   border: 1px solid var(--color-primary-light);
 }
 
@@ -878,7 +878,7 @@
 ========================================= */
 .text-green  { color: var(--color-primary); }
 .text-blue   { color: var(--color-secondary); }
-.text-purple { color: var(--color-yellow); }
+.text-purple { color: var(--color-accent); }
 .text-muted  { color: var(--color-text-muted); }
 .text-center { text-align: center; }
 

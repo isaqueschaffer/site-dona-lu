@@ -7,13 +7,21 @@
 :root {
   /* =========================================
      CORES PRIMÁRIAS
+     Extraídas por amostragem de pixel da logo oficial (logo-donalu.png):
+     verde do avental/maquinário, azul do "LU", roxo da tagline.
+     Os valores abaixo foram escurecidos o mínimo necessário para
+     atingir contraste AA (4.5:1) com texto branco/preto — ver notas.
   ========================================= */
-  --color-primary:      #003399;
-  --color-primary-light:#0052CC;
-  --color-secondary:    #001A4D;
-  --color-secondary-dark: #00133b;
+  --color-primary:      #248558;   /* Verde Dona Lu (logo); ajustado de #2A9C67 para AA */
+  --color-primary-dark: #1B6743;   /* hover de botão primário */
+  --color-primary-light:#E4F3EA;   /* tinta pálida p/ fundo de ícones e badges */
+  --color-secondary:    #2B68C4;   /* Azul Dona Lu (logo) */
+  --color-secondary-dark: #1D4A91; /* hover de botão secundário */
 
-  --color-yellow:       #FFC700;
+  --color-accent:       #8C5DC0;   /* Roxo da tagline no logo; ajustado p/ AA */
+  --color-accent-light: #F1E8FA;   /* tinta pálida p/ fundo de badges roxos */
+
+  --color-yellow:       #FFC700;   /* reservada a selo comercial "Mais Vendido" — não é cor de marca */
   --color-green:        #05DBC1;
 
   /* Teal — Verde-água (E-commerce / Frescor) */
