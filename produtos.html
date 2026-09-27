@@ -28,7 +28,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/reset.css">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/layout.css">
@@ -105,36 +105,11 @@
 
           <!-- Sidebar de Filtros -->
           <aside class="produtos-sidebar" aria-label="Filtros de produto">
-            <div class="filter-box">
-              <h2 class="filter-box__title">Filtrar</h2>
-
+            <div class="filters-panel">
               <div class="filter-group">
-                <h3 class="filter-group__label">Faixa de Preço</h3>
-                <div class="price-range">
-                  <div style="display:flex;justify-content:space-between;font-size:var(--font-size-xs);color:rgba(255,255,255,0.9);margin-bottom:var(--space-2);">
-                    <span>De: <strong data-price-min-val>R$ 0</strong></span>
-                    <span>Até: <strong data-price-max-val>Sem limite</strong></span>
-                  </div>
-                  <label class="sr-only" for="price-max-range">Preço máximo</label>
-                  <input type="range" id="price-max-range" data-filter-price-max min="0" max="200" step="5" value="9999" style="width:100%;">
-                </div>
+                <h3 class="filter-group__label">Pesquisar</h3>
+                <input type="text" id="catalog-search" class="form-input" placeholder="Buscar produto..." style="width:100%; padding: 8px;">
               </div>
-
-              <div class="filter-group">
-                <h3 class="filter-group__label">Marca</h3>
-                <label class="filter-check">
-                  <input type="checkbox" data-filter-brand value="start-quimica">
-                  <span>Start Química</span>
-                </label>
-                <label class="filter-check">
-                  <input type="checkbox" data-filter-brand value="dona-lu">
-                  <span>Dona Lu (Linha Própria)</span>
-                </label>
-              </div>
-
-              <button type="button" data-filter-clear class="btn btn--outline-blue btn--sm btn--full" id="clear-filters-btn" style="margin-top:var(--space-4);">
-                Limpar Filtros
-              </button>
             </div>
           </aside>
 
