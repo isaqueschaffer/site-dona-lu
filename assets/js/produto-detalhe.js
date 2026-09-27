@@ -115,22 +115,22 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="product-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 300px)); gap: 24px; justify-content: center;">
             ${related.map(r => {
                 const rWaText = encodeURIComponent(`Olá! Tenho interesse no produto ${r.name}, no valor de R$ ${r.price.toFixed(2).replace('.', ',')}. Gostaria de mais informações.`);
-                return \`
+                return `
                 <article class="product-card">
                   <div class="product-card__img">
-                    <a href="/produto.html?id=\${r.id}"><img src="\${r.image}" alt="\${r.name}" width="400" height="400" loading="lazy"></a>
+                    <a href="/produto.html?id=${r.id}"><img src="${r.image}" alt="${r.name}" width="400" height="400" loading="lazy"></a>
                   </div>
                   <div class="product-card__body">
-                    <span class="product-card__cat">\${r.category || 'Geral'}</span>
-                    <h3 class="product-card__name"><a href="/produto.html?id=\${r.id}" style="text-decoration:none;color:inherit;">\${r.name}</a></h3>
-                    <div class="product-card__price"><span class="price-current">R$ \${r.price.toFixed(2).replace('.', ',')}</span></div>
+                    <span class="product-card__cat">${r.category || 'Geral'}</span>
+                    <h3 class="product-card__name"><a href="/produto.html?id=${r.id}" style="text-decoration:none;color:inherit;">${r.name}</a></h3>
+                    <div class="product-card__price"><span class="price-current">R$ ${r.price.toFixed(2).replace('.', ',')}</span></div>
                     <div class="product-card__actions">
-                      <a href="https://wa.me/5517981144002?text=\${rWaText}" target="_blank" class="btn-wa">Pedir</a>
-                      <a href="/produto.html?id=\${r.id}" class="btn-detail">Ver</a>
+                      <a href="https://wa.me/5517981144002?text=${rWaText}" target="_blank" class="btn-wa">Pedir</a>
+                      <a href="/produto.html?id=${r.id}" class="btn-detail">Ver</a>
                     </div>
                   </div>
                 </article>
-                \`;
+                `;
             }).join('')}
           </div>
         </div>
