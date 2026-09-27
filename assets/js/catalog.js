@@ -11,56 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentBrand = '';
     let searchQuery = '';
 
-    // Create segment tabs
-    const tabsContainer = document.createElement('div');
-    tabsContainer.className = 'segment-tabs';
-    tabsContainer.innerHTML = `
-        <button class="segment-tab active" data-segment="casa">Para Casa</button>
-        <button class="segment-tab" data-segment="empresa">Para Empresa</button>
-        <button class="segment-tab" data-segment="voce">Para Você</button>
-    `;
-    
-    // Insert tabs before the toolbar
-    const toolbar = document.querySelector('.produtos-toolbar');
-    if (toolbar) {
-        toolbar.parentNode.insertBefore(tabsContainer, toolbar);
-    }
-
-    // Modal structure
-    const modalHTML = `
-    <div id="product-modal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <div class="modal-body">
-                <div class="modal-gallery">
-                    <img id="modal-img" src="" alt="">
-                </div>
-                <div class="modal-info">
-                    <span id="modal-cat" class="product-card__cat"></span>
-                    <h2 id="modal-title"></h2>
-                    <p id="modal-brand" style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 1rem;"></p>
-                    <div id="modal-price" class="product-card__price"></div>
-                    <p id="modal-desc" style="margin-bottom: 1rem; line-height: 1.6; color: var(--color-text-secondary);"></p>
-                    <div class="modal-actions">
-                        <a id="modal-wa" href="#" class="btn-wa" target="_blank" style="display:inline-block; padding: 12px 24px;">Pedir no WhatsApp</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    `;
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
-
-    const modal = document.getElementById('product-modal');
-    const modalClose = document.querySelector('.modal-close');
-
-    modalClose.addEventListener('click', () => {
-        modal.classList.add('hidden');
-    });
-
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) modal.classList.add('hidden');
-    });
+    // Modal logic removed
 
     // Add CSS for Tabs and Modal
     const style = document.createElement('style');
@@ -101,17 +52,45 @@ document.addEventListener('DOMContentLoaded', () => {
             if (grid) grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: red;">Não foi possível carregar o catálogo. Verifique sua conexão ou tente novamente.</p>';
         });
 
-    // Listeners
-    tabsContainer.addEventListener('click', (e) => {
-        if (e.target.classList.contains('segment-tab')) {
-            document.querySelectorAll('.segment-tab').forEach(t => t.classList.remove('active'));
-            e.target.classList.add('active');
-            currentSegment = e.target.dataset.segment;
-            currentCategory = '';
-            currentBrand = '';
-            renderFilters();
+    // Category Pill Buttons logic
+    const catButtons = document.querySelectorAll('.filter-cat-btn');
+    catButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Remove active from all
+            catButtons.forEach(b => b.classList.remove('is-active', 'aria-pressed'));
+            catButtons.forEach(b => b.setAttribute('aria-pressed', 'false'));
+            
+            // Add active to clicked
+            e.currentTarget.classList.add('is-active');
+            e.currentTarget.setAttribute('aria-pressed', 'true');
+            
+            // Update filter
+            const filterVal = e.currentTarget.dataset.filterCategory;
+            if (filterVal === 'all') {
+                currentCategory = '';
+            } else if (filterVal === 'pos-obra') {
+                currentCategory = 'Pós-Obra'; // Ensure this matches JSON data
+            } else if (filterVal === 'limpeza-geral') {
+                currentCategory = 'Limpeza Geral';
+            } else {
+                currentCategory = filterVal;
+            }
+            
+            // Update sidebar select to match (if it exists)
+            const catSelect = document.getElementById('cat-select');
+            if (catSelect) {
+                // Try to find matching option
+                const option = Array.from(catSelect.options).find(opt => opt.value.toLowerCase().includes(currentCategory.toLowerCase()));
+                if (option) {
+                    catSelect.value = option.value;
+                    currentCategory = option.value; // Sync exact casing
+                } else {
+                    catSelect.value = "";
+                }
+            }
+            
             filterAndRender();
-        }
+        });
     });
 
     if (searchInput) {
@@ -130,11 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderFilters() {
         if (!filterContainer) return;
         
-        const segmentProducts = allProducts.filter(p => p.segment === currentSegment);
-        
-        // Extract unique categories and brands
-        const categories = [...new Set(segmentProducts.map(p => p.category))].filter(Boolean);
-        const brands = [...new Set(segmentProducts.map(p => p.brand))].filter(Boolean);
+        const categories = [...new Set(allProducts.map(p => p.category))].filter(Boolean);
+        const brands = [...new Set(allProducts.map(p => p.brand))].filter(Boolean);
         
         let html = '';
         
@@ -184,10 +160,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function filterAndRender() {
         if (!grid) return;
         
-        let filtered = allProducts.filter(p => p.segment === currentSegment);
+        let filtered = allProducts;
         
         if (currentCategory) {
-            filtered = filtered.filter(p => p.category === currentCategory);
+            filtered = filtered.filter(p => p.category && p.category.toLowerCase().includes(currentCategory.toLowerCase()));
         }
         
         if (currentBrand) {
