@@ -66,9 +66,20 @@
   margin: 0 auto var(--space-5);
 }
 
-.mvv-card__icon--green  { background-color: var(--color-primary-light);  color: var(--color-primary); }
-.mvv-card__icon--blue   { background-color: var(--color-bg-tertiary);   color: var(--color-secondary); }
-.mvv-card__icon--purple { background-color: var(--color-yellow); color: var(--color-yellow); }
+.mvv-card__icon--green {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.mvv-card__icon--blue {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-secondary);
+}
+
+.mvv-card__icon--purple {
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
+}
 
 .mvv-card__title {
   font-size: var(--font-size-xl);
@@ -84,9 +95,14 @@
 }
 
 @media (max-width: 1024px) {
-  .company-intro { grid-template-columns: 1fr; gap: var(--space-8); }
+  .company-intro {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
 }
 
 @media (max-width: 768px) {
-  .mvv-grid { grid-template-columns: 1fr; }
+  .mvv-grid {
+    grid-template-columns: 1fr;
+  }
 }
