@@ -84,14 +84,22 @@ document.addEventListener('DOMContentLoaded', () => {
     document.head.appendChild(style);
 
     // Fetch products
-    fetch('/products_data.json')
-        .then(res => res.json())
+    fetch('products_data.json')
+        .then(res => {
+            if (!res.ok) throw new Error('HTTP error ' + res.status);
+            return res.json();
+        })
         .then(data => {
+            if (!Array.isArray(data)) throw new Error('Data is not an array');
             allProducts = data;
             renderFilters();
             filterAndRender();
         })
-        .catch(err => console.error('Error loading products:', err));
+        .catch(err => {
+            console.error('Error loading products:', err);
+            if (countEl) countEl.textContent = 'Erro ao carregar produtos.';
+            if (grid) grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: red;">Não foi possível carregar o catálogo. Verifique sua conexão ou tente novamente.</p>';
+        });
 
     // Listeners
     tabsContainer.addEventListener('click', (e) => {
