@@ -141,6 +141,7 @@
   font-weight: 700;
   line-height: 1.15;
   margin-bottom: var(--space-4);
+  color: var(--color-white);
   text-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
