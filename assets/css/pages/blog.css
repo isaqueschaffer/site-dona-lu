@@ -5,6 +5,7 @@
       display: block; 
       position: relative;
       top: 5px;
+      object-fit: contain;
     }
     /* Menu do Header */
     .nav__link,

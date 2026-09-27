@@ -32,12 +32,12 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  padding: 0.75rem 1.5rem;
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
+  padding: 1rem 2rem;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
   line-height: 1;
-  letter-spacing: 0.01em;
-  border-radius: var(--radius-md);
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-full);
   border: 2px solid transparent;
   cursor: pointer;
   transition: background-color var(--transition-base),
@@ -219,8 +219,8 @@
 }
 
 .product-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-8px);
 }
 
 .product-card__image {
@@ -238,13 +238,14 @@
 }
 
 .product-card:hover .product-card__image img {
-  transform: scale(1.03);
+  transform: scale(1.08);
 }
 
 .product-card__badge {
   position: absolute;
   top: var(--space-3);
   left: var(--space-3);
+  z-index: 10;
 }
 
 .product-card__body {
@@ -856,9 +857,10 @@
 ========================================= */
 .fade-in {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity var(--transition-slower) ease-out,
-              transform var(--transition-slower) ease-out;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .fade-in.is-visible {
@@ -866,10 +868,10 @@
   transform: translateY(0);
 }
 
-.fade-in--delay-1 { transition-delay: 100ms; }
-.fade-in--delay-2 { transition-delay: 200ms; }
-.fade-in--delay-3 { transition-delay: 300ms; }
-.fade-in--delay-4 { transition-delay: 400ms; }
+.fade-in--delay-1 { transition-delay: 150ms; }
+.fade-in--delay-2 { transition-delay: 300ms; }
+.fade-in--delay-3 { transition-delay: 450ms; }
+.fade-in--delay-4 { transition-delay: 600ms; }
 
 /* =========================================
    UTILITÁRIOS

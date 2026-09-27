@@ -22,6 +22,16 @@
    * Inicializa o IntersectionObserver para elementos .fade-in.
    */
   function initFadeIn() {
+    // Adiciona fade-in dinamicamente a elementos principais se ainda não tiverem
+    const elementsToAnimate = document.querySelectorAll(
+      '.product-card, .section-title, .category-card, .blog-card, .footer__col, .features__item, .hero-carousel__content h2, .hero-carousel__content p, .cta-banner'
+    );
+    elementsToAnimate.forEach(function(el) {
+      if (!el.classList.contains('fade-in')) {
+        el.classList.add('fade-in');
+      }
+    });
+
     if (prefersReducedMotion()) {
       // Torna todos visíveis imediatamente sem animação
       document.querySelectorAll('.fade-in').forEach(function (el) {
@@ -48,8 +58,8 @@
         });
       },
       {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.05,
+        rootMargin: '0px 0px -20px 0px',
       }
     );
 

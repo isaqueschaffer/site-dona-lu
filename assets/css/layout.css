@@ -126,6 +126,7 @@
 .header__logo-image {
   height: clamp(40px, 6vw, 60px);
   width: auto;
+  object-fit: contain;
 }
 
 /* Navigation */
@@ -406,7 +407,8 @@
   .header__logo-image {
     height: 48px !important;
     max-height: 7vh;
-    width: auto;
+    width: auto !important;
+    object-fit: contain;
   }
 }
 
@@ -434,5 +436,7 @@
 
   .header__logo-image {
     height: 42px !important;
+    width: auto !important;
+    object-fit: contain;
   }
 }
