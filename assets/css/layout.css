@@ -405,8 +405,8 @@
   
   /* Tamanho de Logo Consistente */
   .header__logo-image {
-    height: 48px !important;
-    max-height: 7vh;
+    height: 64px !important;
+    max-height: 10vh;
     width: auto !important;
     object-fit: contain;
   }
@@ -435,7 +435,7 @@
   }
 
   .header__logo-image {
-    height: 42px !important;
+    height: 56px !important;
     width: auto !important;
     object-fit: contain;
   }
