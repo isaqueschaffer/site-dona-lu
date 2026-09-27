@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produto | Dona Lu</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/reset.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/layout.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages/home.css">
+  <link rel="stylesheet" href="/assets/css/pages/produtos.css">
+  <script src="/config/settings.js" defer></script>
+  <script src="/assets/js/components/whatsapp.js" defer></script>
+  <script src="/assets/js/components/header.js" defer></script>
+  <script src="/assets/js/produto-detalhe.js" defer></script>
+</head>
+<body class="page-produto">
+
+  <div class="topbar">
+    <div class="container">
+      Fale Conosco: <a href="#" data-whatsapp id="topbar-wa">(17) 98132-1919</a> &nbsp;|&nbsp; Produtos de Limpeza Profissional em São José do Rio Preto
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <a href="/index.html" class="header__logo">
+        <img src="/assets/images/logo/logo-donalu.jpg" alt="Dona Lu" class="header__logo-image">
+      </a>
+      <button id="nav-toggle" class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="nav" id="main-nav" aria-label="Menu principal">
+        <a href="/index.html" class="nav__link">Início</a>
+        <a href="/produtos.html" class="nav__link is-active">Produtos</a>
+        <a href="/locacao.html" class="nav__link">Locação</a>
+        <a href="/solucoes.html" class="nav__link">Soluções</a>
+        <a href="/blog/index.html" class="nav__link">Blog</a>
+        <a href="/empresa.html" class="nav__link">Empresa</a>
+        <a href="/contato.html" class="nav__btn">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div style="background:var(--color-gray-50);padding:12px 0;border-bottom:1px solid var(--color-border);">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
+          <span class="breadcrumb__item"><a href="/index.html">Início</a></span>
+          <span class="breadcrumb__separator" aria-hidden="true">›</span>
+          <span class="breadcrumb__item"><a href="/produtos.html">Produtos</a></span>
+          <span class="breadcrumb__separator" aria-hidden="true">›</span>
+          <span class="breadcrumb__item"><a href="/produtos.html" id="bc-cat">Categoria</a></span>
+          <span class="breadcrumb__separator" aria-hidden="true">›</span>
+          <span class="breadcrumb__item breadcrumb__item--active" aria-current="page" id="bc-name">Carregando...</span>
+        </nav>
+      </div>
+    </div>
+
+    <section class="section" id="product-container">
+      <div class="container" style="text-align:center; padding: 40px 0;">
+          <h2>Carregando produto...</h2>
+      </div>
+    </section>
+
+    <!-- Modal template is NOT needed here because the page itself IS the detail view. -->
+    
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="container footer-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:var(--space-8);">
+        <div class="footer-col">
+          <img src="/assets/images/logo/logo-donalu-white.png" alt="Dona Lu" style="height:48px;margin-bottom:var(--space-4);">
+          <p style="color:var(--color-gray-300);font-size:var(--font-size-sm);line-height:1.6;">
+            A Dona Lu é a sua distribuidora de confiança em produtos de limpeza profissional. Soluções completas para ambientes corporativos, industriais e residenciais exigentes.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4 style="color:var(--color-white);font-family:var(--font-family-heading);font-size:1.1rem;margin-bottom:var(--space-4);">Links Rápidos</h4>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--space-2);">
+            <li><a href="/produtos.html" class="footer__link">Produtos</a></li>
+            <li><a href="/locacao.html" class="footer__link">Locação de Máquinas</a></li>
+            <li><a href="/solucoes.html" class="footer__link">Soluções Corporativas</a></li>
+            <li><a href="/blog/index.html" class="footer__link">Dicas de Limpeza</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

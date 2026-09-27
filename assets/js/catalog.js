@@ -234,48 +234,25 @@ document.addEventListener('DOMContentLoaded', () => {
             card.className = 'product-card';
             card.innerHTML = `
                 <div class="product-card__img">
-                  <a href="#" class="open-modal" data-id="${p.id}">
+                  <a href="/produto.html?id=${p.id}">
                     <img src="${p.image}" alt="${p.name}" width="400" height="400" loading="lazy">
                   </a>
                 </div>
                 <div class="product-card__body">
                   <span class="product-card__cat">${p.category || 'Geral'}</span>
-                  <h3 class="product-card__name"><a href="#" class="open-modal" data-id="${p.id}" style="text-decoration:none;color:inherit;">${p.name}</a></h3>
+                  <h3 class="product-card__name"><a href="/produto.html?id=${p.id}" style="text-decoration:none;color:inherit;">${p.name}</a></h3>
                   <p style="font-size:0.8rem; color:var(--color-text-muted); margin-top:-4px; margin-bottom:8px;">${p.brand || ''}</p>
                   <div class="product-card__price">
                     <span class="price-current">R$ ${p.price.toFixed(2).replace('.', ',')}</span>
                   </div>
                   <div class="product-card__actions">
                     <a href="${waUrl}" target="_blank" class="btn-wa">Pedir no WhatsApp</a>
-                    <a href="#" class="btn-detail open-modal" data-id="${p.id}">Ver</a>
+                    <a href="/produto.html?id=${p.id}" class="btn-detail">Ver</a>
                   </div>
                 </div>
             `;
             grid.appendChild(card);
         });
 
-        // Add modal listeners
-        document.querySelectorAll('.open-modal').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const id = e.currentTarget.dataset.id;
-                const prod = allProducts.find(x => x.id === id);
-                if (prod) openModal(prod);
-            });
-        });
-    }
-
-    function openModal(prod) {
-        document.getElementById('modal-img').src = prod.image;
-        document.getElementById('modal-title').textContent = prod.name;
-        document.getElementById('modal-cat').textContent = prod.category || 'Geral';
-        document.getElementById('modal-brand').textContent = prod.brand ? `Marca: ${prod.brand}` : '';
-        document.getElementById('modal-price').textContent = `R$ ${prod.price.toFixed(2).replace('.', ',')}`;
-        document.getElementById('modal-desc').innerHTML = prod.description || 'Descrição não disponível no momento.';
-        
-        const waText = encodeURIComponent(`Olá! Tenho interesse no produto ${prod.name}, no valor de R$ ${prod.price.toFixed(2).replace('.', ',')}. Gostaria de mais informações.`);
-        document.getElementById('modal-wa').href = `https://wa.me/5517981144002?text=${waText}`;
-        
-        modal.classList.remove('hidden');
     }
 });
