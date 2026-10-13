@@ -28,7 +28,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/reset.css">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/layout.css">
@@ -81,7 +81,7 @@
     </div>
 
     <!-- Intro da Página -->
-    <section class="section" style="background:linear-gradient(135deg,var(--color-primary) 0%,var(--color-secondary-dark) 100%);padding:clamp(48px,8vw,80px) 0;color:#fff;">
+    <section class="section--dark section" style="background:linear-gradient(135deg,var(--color-navy) 0%,var(--color-primary) 100%);padding:clamp(48px,8vw,80px) 0;color:#fff;">
       <div class="container">
         <h1 style="font-family:var(--font-family-heading);font-size:clamp(28px,4vw,40px);color:white;margin-bottom:var(--space-4);">Catálogo de Produtos de Limpeza</h1>
         <p style="font-size:var(--font-size-md);color:rgba(255,255,255,0.9);max-width:720px;line-height:1.7;margin-bottom:var(--space-8);">
@@ -89,12 +89,13 @@
         </p>
 
         <!-- Filtros de Categoria (pill buttons) -->
-        <div class="produtos-filter-cats" role="group" aria-label="Filtrar por categoria">
-          <button class="filter-cat-btn is-active" data-filter-category="all" aria-pressed="true" type="button" id="filter-all">Todos</button>
-          <button class="filter-cat-btn" data-filter-category="pos-obra" aria-pressed="false" type="button" id="filter-pos-obra">Pós Obra</button>
-          <button class="filter-cat-btn" data-filter-category="limpeza-geral" aria-pressed="false" type="button" id="filter-limpeza-geral">Limpeza Geral</button>
-          <button class="filter-cat-btn" data-filter-category="locacao" aria-pressed="false" type="button" id="filter-locacao">Aluguel / Máquinas</button>
+        <div class="produtos-filter-cats" role="group" aria-label="Filtrar por público">
+          <button class="filter-cat-btn is-active" data-filter-segment="all" aria-pressed="true" type="button" id="filter-all">Todos</button>
+          <button class="filter-cat-btn" data-filter-segment="casa" aria-pressed="false" type="button" id="filter-casa">Para casa</button>
+          <button class="filter-cat-btn" data-filter-segment="empresa" aria-pressed="false" type="button" id="filter-empresa">Para empresa</button>
+          <button class="filter-cat-btn" data-filter-segment="voce" aria-pressed="false" type="button" id="filter-voce">Para você</button>
         </div>
+        <a class="filter-cat-btn" href="/locacao.html" id="filter-locacao" style="margin-top:var(--space-3);">Aluguel de máquinas →</a>
       </div>
     </section>
 
@@ -107,7 +108,7 @@
           <aside class="produtos-sidebar" aria-label="Filtros de produto">
             <div class="filters-panel">
               <div class="filter-group">
-                <h3 class="filter-group__label">Pesquisar</h3>
+                <label for="catalog-search" class="filter-group__label">Pesquisar</label>
                 <input type="text" id="catalog-search" class="form-input" placeholder="Buscar produto..." style="width:100%; padding: 8px;">
               </div>
             </div>
@@ -116,7 +117,7 @@
           <!-- Grid de Produtos -->
           <div class="produtos-main">
             <div class="produtos-toolbar">
-              <p class="produtos-count" data-product-count>Carregando produtos...</p>
+              <p class="produtos-count" data-product-count aria-live="polite">Carregando produtos...</p>
               <div style="display:flex;align-items:center;gap:var(--space-3);">
                 <label for="sort-select" class="sr-only">Ordenar por</label>
                 <select id="sort-select" data-filter-sort class="form-select" style="padding:8px 36px 8px 12px;min-width:160px;">
@@ -188,13 +189,13 @@
           </a>
         </div>
         <address style="margin-top:10px;font-style:normal;font-size:var(--font-size-sm);color:var(--color-gray-300);">
-          Av. Exemplo, 1234 — São José do Rio Preto, SP
+          <a href="https://maps.app.goo.gl/Qu83ghauk8Cierjh9" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">São José do Rio Preto, SP — ver no Google Maps</a>
         </address>
       </div>
     </div>
     <div class="footer__bottom">
       <div class="container">
-        &copy; 2026 Dona Lu. Todos os direitos reservados. | CNPJ: 69.236.751/0001-08<a href="/privacidade.html" class="footer__link" style="display:inline;color:var(--color-gray-400);">Privacidade</a> ·
+        &copy; 2026 Dona Lu. Todos os direitos reservados. | CNPJ: 69.236.751/0001-08 · <a href="/privacidade.html" class="footer__link" style="display:inline;color:var(--color-gray-400);">Privacidade</a> ·
         <a href="/troca-devolucao.html" class="footer__link" style="display:inline;color:var(--color-gray-400);">Trocas e Devoluções</a>
       </div>
     </div>

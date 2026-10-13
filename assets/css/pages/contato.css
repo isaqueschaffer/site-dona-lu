@@ -117,8 +117,8 @@
 }
 
 .contact-info-item__icon--green {
-  background-color: #E8FDF3;
-  color: #25D366;
+  background-color: var(--color-whatsapp-light);
+  color: var(--color-whatsapp-btn);
 }
 
 .contact-info-item__label {

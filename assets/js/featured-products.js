@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const WA_NUMBER = (typeof DONALU_CONFIG !== 'undefined' && DONALU_CONFIG.contact.whatsapp) || '5517981321919';
     const featuredGrid = document.getElementById('featured-products-grid');
     if (!featuredGrid) return;
 
@@ -30,12 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let html = '';
         products.forEach((p, index) => {
             const waText = encodeURIComponent(`Olá! Tenho interesse no produto ${p.name}, no valor de R$ ${p.price.toFixed(2).replace('.', ',')}. Gostaria de mais informações.`);
-            const waUrl = `https://wa.me/5517981144002?text=${waText}`;
+            const waUrl = `https://wa.me/${WA_NUMBER}?text=${waText}`;
             
-            let badgesHTML = '';
-            if (index === 0) badgesHTML = '<span class="badge badge-new">Novo</span>';
-            if (index === 1) badgesHTML = '<span class="badge badge-hit">Mais Vendido</span>';
-            if (index === 2) badgesHTML = '<span class="badge badge-sale">Promoção</span>';
+            // Selos só quando definidos no JSON (campo opcional "badge": "Novo" | "Mais Vendido" | "Promoção")
+            const badgeClass = { 'Novo': 'badge-new', 'Mais Vendido': 'badge-hit', 'Promoção': 'badge-sale' }[p.badge];
+            const badgesHTML = badgeClass ? `<span class="badge ${badgeClass}">${p.badge}</span>` : '';
 
             html += `
             <article class="product-card" itemscope itemtype="https://schema.org/Product">

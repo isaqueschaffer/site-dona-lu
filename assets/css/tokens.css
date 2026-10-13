@@ -1,43 +1,71 @@
 /**
  * DONA LU — Design Tokens
- * Sistema central de design: cores, tipografia, espaçamento, sombras e transições.
+ * Identidade inspirada na Start Química: azul institucional + navy profundo,
+ * amarelo como única cor de AÇÃO (sempre com texto navy), neutros claros.
  * Edite aqui para atualizar a identidade visual em todo o site.
+ * Contrastes medidos com scripts/contrast.py (valores ao lado de cada token).
  */
 
 :root {
   /* =========================================
-     CORES PRIMÁRIAS
-     Extraídas por amostragem de pixel da logo oficial (logo-donalu.png):
-     verde do avental/maquinário, azul do "LU", roxo da tagline.
-     Os valores abaixo foram escurecidos o mínimo necessário para
-     atingir contraste AA (4.5:1) com texto branco/preto — ver notas.
+     MARCA — AZUL / NAVY
   ========================================= */
-  --color-primary:      #248558;   /* Verde Dona Lu (logo); ajustado de #2A9C67 para AA */
-  --color-primary-dark: #1B6743;   /* hover de botão primário */
-  --color-primary-light:#E4F3EA;   /* tinta pálida p/ fundo de ícones e badges */
-  --color-secondary:    #2B68C4;   /* Azul Dona Lu (logo) */
-  --color-secondary-dark: #1D4A91; /* hover de botão secundário */
+  --color-primary:        #003CA5;   /* Azul Start — links, botões primários (branco 9.6:1) */
+  --color-primary-dark:   #002E80;   /* hover do primário (branco 12.3:1) */
+  --color-primary-light:  #E6EEFA;   /* tinta pálida azul p/ fundos de ícone/badge (primary 8.2:1) */
 
-  --color-accent:       #8C5DC0;   /* Roxo da tagline no logo; ajustado p/ AA */
-  --color-accent-light: #F1E8FA;   /* tinta pálida p/ fundo de badges roxos */
+  --color-navy:           #001F56;   /* fundos escuros, títulos (branco 15.8:1) */
+  --color-navy-2:         #162239;   /* fundo escuro alternativo, rodapé inferior */
 
-  --color-yellow:       #FFC700;   /* reservada a selo comercial "Mais Vendido" — não é cor de marca */
-  --color-green:        #05DBC1;
+  --color-secondary:      var(--color-navy);    /* secundário = navy */
+  --color-secondary-dark: var(--color-navy-2);  /* hover/variação do secundário */
 
-  /* Teal — Verde-água (E-commerce / Frescor) */
-  --color-teal:         #00B8A0;
-  --color-teal-dark:    #00907D;
-  --color-teal-light:   #E0F7F4;
+  /* =========================================
+     AÇÃO — AMARELO (CTA)
+     Regra: fundo amarelo SEMPRE com texto --color-navy.
+     Nunca usar amarelo como cor de texto sobre fundo claro.
+  ========================================= */
+  --color-accent:         #FDB827;   /* CTA (navy sobre amarelo 9.1:1) */
+  --color-accent-dark:    #E9A30F;   /* hover do CTA (navy 7.3:1) */
+  --color-accent-light:   #FFF4D6;   /* tinta pálida amarela p/ fundos (navy 14.4:1) */
+  --color-on-accent:      var(--color-navy);
 
-  /* E-commerce — Preço e Promoção */
-  --color-price:        #0050A0;
+  /* Texto secundário */
+  --color-muted-on-dark:  #879BC1;   /* texto secundário sobre navy (5.6:1) */
+  --color-muted-on-light: #5A6A88;   /* texto secundário sobre branco (5.5:1) / #EFEFEF (4.7:1) */
+
+  /* Superfícies neutras */
+  --color-surface:        #EFEFEF;   /* seções alternadas */
+  --color-surface-2:      #E6E6E6;   /* divisórias/fundos de apoio (não usar com texto #5A6A88 pequeno: 4.4:1) */
+
+  /* =========================================
+     WHATSAPP
+  ========================================= */
+  --color-whatsapp:          #25D366; /* SOMENTE FAB/ícone (sem texto) — verde oficial */
+  --color-whatsapp-btn:      #1E7E46; /* botões com TEXTO de WhatsApp (branco 5.1:1) */
+  --color-whatsapp-btn-dark: #17663A; /* hover (branco 7.0:1) */
+  --color-whatsapp-btn-text: var(--color-white);
+  --color-whatsapp-light:    #E7F4EC; /* fundo pálido p/ ícone verde (#1E7E46 4.5:1) */
+
+  /* =========================================
+     E-COMMERCE
+  ========================================= */
+  --color-price:        var(--color-navy);
   --color-price-old:    #868E96;
-  --color-badge-sale:   #E53935;
-  --color-badge-new:    #00B8A0;
-  --color-badge-hit:    #F9D915;
+  --color-badge-sale:   #C62828;          /* branco 5.6:1 */
+  --color-badge-new:    var(--color-primary);
+  --color-badge-hit:    var(--color-accent); /* usar com texto navy */
 
-  /* Focus (alias corrigido) */
-  --color-blue:         #0050A0;
+  /* =========================================
+     LEGADO — NÃO USAR (aliases da paleta antiga verde/teal/roxo,
+     mantidos porque CSS e HTML inline ainda os referenciam)
+  ========================================= */
+  --color-teal:         var(--color-primary);       /* legado — não usar */
+  --color-teal-dark:    var(--color-primary-dark);  /* legado — não usar */
+  --color-teal-light:   var(--color-primary-light); /* legado — não usar */
+  --color-green:        var(--color-success);       /* legado — não usar */
+  --color-yellow:       var(--color-accent);        /* legado — não usar (usar --color-accent) */
+  --color-blue:         var(--color-primary);       /* legado — não usar */
 
   /* =========================================
      ESCALA DE CINZAS
@@ -58,28 +86,36 @@
      CORES SEMÂNTICAS
   ========================================= */
   --color-text-primary:   var(--color-gray-900);
-  --color-text-secondary: var(--color-gray-600);
-  --color-text-muted:     var(--color-gray-500);
+  --color-text-secondary: var(--color-muted-on-light);
+  --color-text-muted:     var(--color-muted-on-light);   /* #5A6A88 — 5.45:1 no branco */
   --color-text-on-dark:   var(--color-white);
 
   --color-bg-primary:     var(--color-white);
-  --color-bg-secondary:   var(--color-gray-50);
+  --color-bg-secondary:   var(--color-surface);
   --color-bg-tertiary:    var(--color-gray-100);
-  --color-bg-dark:        #0F1923;
-  --color-bg-dark-2:      #162030;
+  --color-bg-dark:        var(--color-navy);
+  --color-bg-dark-2:      var(--color-navy-2);
 
   --color-border:         var(--color-gray-200);
   --color-border-light:   var(--color-gray-100);
 
-  --color-success:        var(--color-green);
+  --color-success:        #1E7E46;   /* branco 5.1:1 (AA) */
   --color-error:          #D93025;
   --color-warning:        #F59E0B;
 
   /* =========================================
      TIPOGRAFIA
   ========================================= */
-  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-family-heading: 'Bricolage Grotesque', sans-serif;
+  /* Montserrat (corpo/UI) + Bricolage Grotesque (títulos) — carregadas via <link> no <head> */
+  --font-family-base: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-heading: 'Bricolage Grotesque', 'Montserrat', system-ui, sans-serif;
+
+  /* Escala fluida de títulos */
+  --fs-h1: clamp(2rem, 4vw + 1rem, 3.5rem);        /* 32 → 56px */
+  --fs-h2: clamp(1.75rem, 2vw + 1rem, 2.75rem);    /* 28 → 44px */
+  --fs-h3: clamp(1.375rem, 1vw + 1rem, 1.875rem);  /* 22 → 30px */
+  --fs-h4: clamp(1.125rem, 0.5vw + 1rem, 1.375rem);/* 18 → 22px */
+  --fs-lead: clamp(1.0625rem, 0.4vw + 1rem, 1.25rem); /* 17 → 20px */
 
   --font-size-xs:   0.75rem;    /* 12px */
   --font-size-sm:   0.875rem;   /* 14px */
@@ -96,6 +132,7 @@
   --font-weight-medium:    500;
   --font-weight-semibold:  600;
   --font-weight-bold:      700;
+  --font-weight-extrabold: 800;
 
   --line-height-tight:  1.2;
   --line-height-snug:   1.35;
@@ -135,16 +172,18 @@
   --gutter-lg:       2rem;
 
   /* =========================================
-     BORDAS E RAIOS (Estilo Corporativo/Sério)
+     BORDAS E RAIOS (cards arredondados, botões pílula — estilo Start)
   ========================================= */
   --radius-sm:   8px;
   --radius-md:   16px;
   --radius-lg:   24px;
   --radius-xl:   32px;
   --radius-full: 9999px;
+  --radius-card: 24px;   /* cards e blocos de destaque */
+  --radius-pill: 48px;   /* botões pílula */
 
   /* =========================================
-     SOMBRAS (Sólidas/Duras para contraste)
+     SOMBRAS (suaves)
   ========================================= */
   --shadow-xs:  0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-sm:  0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -194,8 +233,13 @@
 }
 
 /* Focus visível para navegação por teclado */
+:root { --focus-ring: var(--color-primary); }
+/* Em fundos azul/navy o anel azul some — usa o amarelo (9.07:1 sobre navy) */
+.topbar, .footer, .cta, .cta-banner, .hero-page, .section--dark, .page-home .header:not(.menu-open) {
+  --focus-ring: var(--color-accent);
+}
 :focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }

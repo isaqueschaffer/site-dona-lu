@@ -102,12 +102,12 @@
 
 .page-home .header .nav__link:hover {
   color: var(--color-yellow);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 0 12px rgba(249, 217, 21, 0.5);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 0 12px rgba(253, 184, 39, 0.5);
 }
 
 .page-home .header .nav__link.is-active {
   color: var(--color-yellow);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 0 12px rgba(249, 217, 21, 0.5);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 0 12px rgba(253, 184, 39, 0.5);
 }
 
 /* Botão hambúrguer no mobile sobre o banner */
@@ -159,7 +159,7 @@
 }
 .nav__btn:hover {
   transform: scale(1.05);
-  background: #f0ce00;
+  background: var(--color-accent-dark);
 }
 
 /* Mobile Toggle Button */
@@ -181,7 +181,10 @@
 .nav__toggle:hover,
 .nav__toggle:focus-visible {
   background-color: var(--color-gray-100);
-  outline: none;
+}
+.page-home .header:not(.menu-open) .nav__toggle:hover,
+.page-home .header:not(.menu-open) .nav__toggle:focus-visible {
+  background-color: rgba(0, 31, 86, 0.6);
 }
 
 /* =========================================

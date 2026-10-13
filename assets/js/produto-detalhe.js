@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const WA_NUMBER = (typeof DONALU_CONFIG !== 'undefined' && DONALU_CONFIG.contact.whatsapp) || '5517981321919';
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
 
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('bc-name').textContent = p.name;
 
         const waText = encodeURIComponent(`Olá! Tenho interesse no produto ${p.name}, no valor de R$ ${p.price.toFixed(2).replace('.', ',')}. Gostaria de mais informações.`);
-        const waUrl = `https://wa.me/5517981144002?text=${waText}`;
+        const waUrl = `https://wa.me/${WA_NUMBER}?text=${waText}`;
 
         // Get some related products (same category, different ID)
         let related = allData.filter(x => x.category === p.category && x.id !== p.id).slice(0, 4);
@@ -41,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="product-page__gallery">
             <img src="${p.image}" alt="${p.name}" width="500" height="500" fetchpriority="high" decoding="async">
             <div style="margin-top:var(--space-4);">
-              <span class="badge badge-hit" style="margin-right:var(--space-2);">Mais Vendido</span>
               <span style="font-size:var(--font-size-xs);color:var(--color-text-muted);">Referência: REF-${p.id}</span>
             </div>
           </div>
@@ -50,11 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="product-card__cat" style="font-size:var(--font-size-xs);">${p.category || 'Geral'} · ${p.brand || 'Marca não informada'}</span>
             <h1>${p.name}</h1>
 
-            <div style="display:flex;align-items:center;gap:var(--space-2);margin-bottom:var(--space-4);">
-              <div style="color:#F59E0B;font-size:18px;">★★★★★</div>
-              <span style="font-size:var(--font-size-sm);font-weight:600;color:var(--color-secondary);">5,0</span>
-              <span style="font-size:var(--font-size-sm);color:var(--color-text-muted);">(Avaliações)</span>
-            </div>
 
             <div class="product-page__price">
               <span class="price-current">R$ ${p.price.toFixed(2).replace('.', ',')}</span>
@@ -125,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3 class="product-card__name"><a href="/produto.html?id=${r.id}" style="text-decoration:none;color:inherit;">${r.name}</a></h3>
                     <div class="product-card__price"><span class="price-current">R$ ${r.price.toFixed(2).replace('.', ',')}</span></div>
                     <div class="product-card__actions">
-                      <a href="https://wa.me/5517981144002?text=${rWaText}" target="_blank" class="btn-wa">Pedir</a>
+                      <a href="https://wa.me/${WA_NUMBER}?text=${rWaText}" target="_blank" class="btn-wa">Pedir</a>
                       <a href="/produto.html?id=${r.id}" class="btn-detail">Ver</a>
                     </div>
                   </div>

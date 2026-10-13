@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const WA_NUMBER = (typeof DONALU_CONFIG !== 'undefined' && DONALU_CONFIG.contact.whatsapp) || '5517981321919';
     const grid = document.querySelector('[data-product-grid]');
     const countEl = document.querySelector('[data-product-count]');
     const filterContainer = document.querySelector('.produtos-sidebar');
@@ -6,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sortSelect = document.getElementById('sort-select');
     
     let allProducts = [];
-    let currentSegment = 'casa';
+    let currentSegment = '';
     let currentCategory = '';
     let currentBrand = '';
     let searchQuery = '';
@@ -53,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     // Category Pill Buttons logic
-    const catButtons = document.querySelectorAll('.filter-cat-btn');
+    const catButtons = document.querySelectorAll('.filter-cat-btn[data-filter-segment]');
     catButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             // Remove active from all
@@ -64,31 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
             e.currentTarget.classList.add('is-active');
             e.currentTarget.setAttribute('aria-pressed', 'true');
             
-            // Update filter
-            const filterVal = e.currentTarget.dataset.filterCategory;
-            if (filterVal === 'all') {
-                currentCategory = '';
-            } else if (filterVal === 'pos-obra') {
-                currentCategory = 'Pós-Obra'; // Ensure this matches JSON data
-            } else if (filterVal === 'limpeza-geral') {
-                currentCategory = 'Limpeza Geral';
-            } else {
-                currentCategory = filterVal;
-            }
-            
-            // Update sidebar select to match (if it exists)
-            const catSelect = document.getElementById('cat-select');
-            if (catSelect) {
-                // Try to find matching option
-                const option = Array.from(catSelect.options).find(opt => opt.value.toLowerCase().includes(currentCategory.toLowerCase()));
-                if (option) {
-                    catSelect.value = option.value;
-                    currentCategory = option.value; // Sync exact casing
-                } else {
-                    catSelect.value = "";
-                }
-            }
-            
+            // Filtro por público (segment no JSON: casa | empresa | voce)
+            const filterVal = e.currentTarget.dataset.filterSegment;
+            currentSegment = filterVal === 'all' ? '' : filterVal;
+
             filterAndRender();
         });
     });
@@ -138,7 +118,15 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         }
 
-        filterContainer.innerHTML = html;
+        // Insere os selects num container próprio para não apagar o campo de busca
+        let filtersSlot = filterContainer.querySelector('[data-filters]');
+        if (!filtersSlot) {
+            filtersSlot = document.createElement('div');
+            filtersSlot.setAttribute('data-filters', '');
+            filtersSlot.style.marginTop = '24px';
+            (filterContainer.querySelector('.filters-panel') || filterContainer).appendChild(filtersSlot);
+        }
+        filtersSlot.innerHTML = html;
         
         const catSelect = document.getElementById('cat-select');
         const brandSelect = document.getElementById('brand-select');
@@ -160,7 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function filterAndRender() {
         if (!grid) return;
         
-        let filtered = allProducts;
+        let filtered = [...allProducts];
+
+        if (currentSegment) {
+            filtered = filtered.filter(p => p.segment === currentSegment);
+        }
         
         if (currentCategory) {
             filtered = filtered.filter(p => p.category && p.category.toLowerCase().includes(currentCategory.toLowerCase()));
@@ -192,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (countEl) {
-            countEl.textContent = `${filtered.length} produtos encontrados`;
+            countEl.textContent = filtered.length === 1 ? '1 produto encontrado' : `${filtered.length} produtos encontrados`;
         }
 
         grid.innerHTML = '';
@@ -204,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         filtered.forEach(p => {
             const waText = encodeURIComponent(`Olá! Tenho interesse no produto ${p.name}, no valor de R$ ${p.price.toFixed(2).replace('.', ',')}. Gostaria de mais informações.`);
-            const waUrl = `https://wa.me/5517981144002?text=${waText}`;
+            const waUrl = `https://wa.me/${WA_NUMBER}?text=${waText}`;
             
             const card = document.createElement('article');
             card.className = 'product-card';

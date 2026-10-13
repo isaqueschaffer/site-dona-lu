@@ -26,6 +26,9 @@
 }
 
 .filter-cat-btn {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   padding: 8px 20px;
   border-radius: var(--radius-full);
   border: 2px solid var(--color-border);
@@ -42,9 +45,9 @@
   color: var(--color-teal);
 }
 .filter-cat-btn.is-active {
-  background: var(--color-teal);
-  border-color: var(--color-teal);
-  color: #fff;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-on-accent);
 }
 
 /* Layout amplo: move sidebar de filtro mais para a esquerda e centraliza o grid */

@@ -55,7 +55,7 @@
   transform: translateY(1px);
 }
 
-/* Primário — Verde */
+/* Primário — Azul Start */
 .btn--primary {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
@@ -64,10 +64,10 @@
 .btn--primary:hover {
   background-color: var(--color-primary-dark);
   border-color: var(--color-primary-dark);
-  box-shadow: 0 4px 12px rgba(42, 156, 103, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 60, 165, 0.3); /* primary */
 }
 
-/* Secundário — Azul */
+/* Secundário — Navy */
 .btn--secondary {
   background-color: var(--color-secondary);
   border-color: var(--color-secondary);
@@ -76,7 +76,7 @@
 .btn--secondary:hover {
   background-color: var(--color-secondary-dark);
   border-color: var(--color-secondary-dark);
-  box-shadow: 0 4px 12px rgba(43, 104, 196, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 31, 86, 0.3); /* navy */
 }
 
 /* Outline Verde */
@@ -124,14 +124,14 @@
 
 /* WhatsApp */
 .btn--whatsapp {
-  background-color: #25D366;
-  border-color: #25D366;
-  color: var(--color-white);
+  background-color: var(--color-whatsapp-btn);
+  border-color: var(--color-whatsapp-btn);
+  color: var(--color-whatsapp-btn-text);
 }
 .btn--whatsapp:hover {
-  background-color: #1DAD55;
-  border-color: #1DAD55;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  background-color: var(--color-whatsapp-btn-dark);
+  border-color: var(--color-whatsapp-btn-dark);
+  box-shadow: 0 4px 12px rgba(30, 126, 70, 0.3);
 }
 
 /* Tamanhos */
@@ -180,8 +180,8 @@
   color: var(--color-secondary);
 }
 
-.section-title__label--purple {
-  color: var(--color-accent);
+.section-title__label--purple { /* legado: roxo → navy (amarelo não pode ser texto em fundo claro) */
+  color: var(--color-navy);
 }
 
 .section-title__h2 {
@@ -331,7 +331,7 @@
 
 .category-card__icon--purple {
   background-color: var(--color-accent-light);
-  color: var(--color-accent);
+  color: var(--color-on-accent);
 }
 
 .category-card__icon svg {
@@ -555,7 +555,7 @@
 
 .badge--purple {
   background-color: var(--color-accent-light);
-  color: var(--color-accent);
+  color: var(--color-on-accent);
 }
 
 .badge--gray {
@@ -604,7 +604,7 @@
 .form-textarea:focus,
 .form-select:focus {
   border-color: var(--color-secondary);
-  box-shadow: 0 0 0 3px rgba(43, 104, 196, 0.12);
+  box-shadow: 0 0 0 3px rgba(0, 60, 165, 0.12); /* primary */
 }
 
 .form-input::placeholder,
@@ -761,7 +761,7 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background-color: #25D366;
+  background-color: var(--color-whatsapp);
   color: var(--color-white);
   display: flex;
   align-items: center;
@@ -878,7 +878,7 @@
 ========================================= */
 .text-green  { color: var(--color-primary); }
 .text-blue   { color: var(--color-secondary); }
-.text-purple { color: var(--color-accent); }
+.text-purple { color: var(--color-navy); } /* legado: roxo → navy */
 .text-muted  { color: var(--color-text-muted); }
 .text-center { text-align: center; }
 

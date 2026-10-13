@@ -10,7 +10,7 @@
 .hero-carousel {
   position: relative;
   overflow: hidden;
-  background-color: #0050A0; /* fallback cor enquanto carrega */
+  background-color: var(--color-navy); /* fallback cor enquanto carrega */
   /* Altura total da tela (100% da viewport com o header sobreposto) */
   height: 100vh;
   height: 100dvh;
@@ -166,7 +166,7 @@
   transition: transform var(--transition-fast), background-color var(--transition-fast);
 }
 .carousel__cta:hover {
-  background: #f0ce00;
+  background: var(--color-accent-dark);
   transform: scale(1.04);
 }
 
@@ -438,8 +438,8 @@
 
 .btn-wa {
   flex: 1;
-  background: #25D366;
-  color: #fff;
+  background: var(--color-whatsapp-btn);
+  color: var(--color-whatsapp-btn-text);
   border: none;
   border-radius: var(--radius-md);
   padding: 10px 12px;
@@ -453,7 +453,7 @@
   text-decoration: none;
   transition: background var(--transition-fast), transform var(--transition-fast);
 }
-.btn-wa:hover { background: #1DAD55; transform: scale(1.02); }
+.btn-wa:hover { background: var(--color-whatsapp-btn-dark); transform: scale(1.02); }
 
 .btn-detail {
   background: transparent;
@@ -599,7 +599,7 @@
    CALL TO ACTION
 ========================================= */
 .cta {
-  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-dark) 100%);
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-primary) 100%);
   padding: clamp(60px, 8vw, 80px) 0;
   color: var(--color-white);
 }
@@ -625,14 +625,14 @@
 
 .cta p {
   font-size: clamp(15px, 1.8vw, 18px);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
   color: rgba(255,255,255,0.85);
 }
 
 .btn-cta {
-  background-color: var(--color-teal);
-  color: #fff;
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
   font-size: clamp(15px, 1.8vw, 18px);
   font-weight: 700;
   padding: 16px clamp(24px, 4vw, 44px);
@@ -646,8 +646,8 @@
 }
 .btn-cta:hover {
   transform: scale(1.04);
-  background-color: var(--color-teal-dark);
-  box-shadow: 0 8px 24px rgba(0,184,160,0.4);
+  background-color: var(--color-accent-dark);
+  box-shadow: 0 8px 24px rgba(253,184,39,0.4);
 }
 
 /* =========================================
@@ -676,7 +676,7 @@
 }
 
 .partner-card h3 { font-size: clamp(20px, 3vw, 24px); font-weight: 700; margin-bottom: var(--space-3); color: var(--color-secondary); }
-.partner-card p  { font-size: var(--font-size-sm); color: var(--color-gray-500); line-height: 1.7; }
+.partner-card p  { font-size: var(--font-size-sm); color: var(--color-text-secondary); line-height: 1.7; }
 
 /* =========================================
    RESPONSIVIDADE

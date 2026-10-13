@@ -78,7 +78,7 @@
 
 .mvv-card__icon--purple {
   background-color: var(--color-accent-light);
-  color: var(--color-accent);
+  color: var(--color-on-accent);
 }
 
 .mvv-card__title {
