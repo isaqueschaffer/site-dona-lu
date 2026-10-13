@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <section class="section" style="background:var(--color-gray-50); margin-top: 60px;">
         <div class="container">
           <div class="section-lead"><span class="section-label">Veja Também</span><h2>Produtos <span>Relacionados</span></h2></div>
-          <div class="product-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 300px)); gap: 24px; justify-content: center;">
+          <div class="product-grid">
             ${related.map(r => {
                 const rWaText = encodeURIComponent(`Olá! Tenho interesse no produto ${r.name}, no valor de R$ ${r.price.toFixed(2).replace('.', ',')}. Gostaria de mais informações.`);
                 return `

@@ -25,37 +25,98 @@
 }
 
 /* =========================================
-   BUTTONS
+   BOTÕES — sistema em pílula (estilo Start)
+   Variantes: --accent (ação principal, amarelo), --primary (azul),
+   --outline, --outline-white (fundos escuros), --ghost, --whatsapp.
+   Tamanhos: --sm (44px), padrão (48px), --lg (56px), --full.
+
+   Aliases legados — mesma aparência, sem renomear no HTML/JS:
+     .btn-cta, .carousel__cta, .nav__btn  → accent
+     .btn-wa                              → whatsapp
+     .btn-detail, .btn--outline-blue,
+     .btn--outline-green                  → outline
 ========================================= */
-.btn {
+.btn,
+.btn-wa,
+.btn-detail,
+.btn-cta,
+.carousel__cta,
+.nav__btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  padding: 1rem 2rem;
-  font-size: var(--font-size-base);
+  min-height: var(--btn-height);
+  padding: var(--space-3) var(--btn-padding-x);
+  font-family: var(--font-family-base);
+  font-size: var(--btn-font-size);
   font-weight: var(--font-weight-bold);
-  line-height: 1;
-  letter-spacing: 0.02em;
-  border-radius: var(--radius-full);
+  line-height: var(--line-height-tight);
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
   border: 2px solid transparent;
+  border-radius: var(--radius-pill);
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
   transition: background-color var(--transition-base),
               border-color var(--transition-base),
               color var(--transition-base),
               box-shadow var(--transition-base),
               transform var(--transition-fast);
-  white-space: nowrap;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
 }
 
-.btn:active {
-  transform: translateY(1px);
+.btn svg,
+.btn-wa svg,
+.btn-cta svg,
+.carousel__cta svg {
+  flex-shrink: 0;
 }
 
-/* Primário — Azul Start */
+.btn:active,
+.btn-wa:active,
+.btn-detail:active,
+.btn-cta:active,
+.carousel__cta:active,
+.nav__btn:active {
+  transform: scale(0.98);
+}
+
+/* Desabilitado: <button disabled>, aria-disabled ou .is-disabled em <a> */
+.btn:disabled,
+.btn[aria-disabled="true"],
+.btn.is-disabled,
+.btn-wa[aria-disabled="true"],
+.btn-detail[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+  transform: none;
+}
+
+/* ---------- Accent — amarelo, AÇÃO PRINCIPAL (texto navy 9.1:1) ---------- */
+.btn--accent,
+.btn-cta,
+.carousel__cta,
+.nav__btn {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-on-accent);
+}
+.btn--accent:hover,
+.btn-cta:hover,
+.carousel__cta:hover,
+.nav__btn:hover {
+  background-color: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+  color: var(--color-on-accent);
+  box-shadow: 0 6px 16px rgba(253, 184, 39, 0.35); /* accent */
+}
+
+/* ---------- Primary — azul Start ---------- */
 .btn--primary {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
@@ -64,55 +125,66 @@
 .btn--primary:hover {
   background-color: var(--color-primary-dark);
   border-color: var(--color-primary-dark);
-  box-shadow: 0 4px 12px rgba(0, 60, 165, 0.3); /* primary */
+  color: var(--color-white);
+  box-shadow: 0 6px 16px rgba(0, 60, 165, 0.3); /* primary */
 }
 
-/* Secundário — Navy */
+/* ---------- Secondary — navy (legado) ---------- */
 .btn--secondary {
-  background-color: var(--color-secondary);
-  border-color: var(--color-secondary);
+  background-color: var(--color-navy);
+  border-color: var(--color-navy);
   color: var(--color-white);
 }
 .btn--secondary:hover {
-  background-color: var(--color-secondary-dark);
-  border-color: var(--color-secondary-dark);
-  box-shadow: 0 4px 12px rgba(0, 31, 86, 0.3); /* navy */
+  background-color: var(--color-navy-2);
+  border-color: var(--color-navy-2);
+  color: var(--color-white);
 }
 
-/* Outline Verde */
-.btn--outline-green {
+/* ---------- Outline — contorno azul ---------- */
+.btn--outline,
+.btn--outline-blue,
+.btn--outline-green,
+.btn-detail {
   background-color: transparent;
   border-color: var(--color-primary);
   color: var(--color-primary);
 }
-.btn--outline-green:hover {
+.btn--outline:hover,
+.btn--outline-blue:hover,
+.btn--outline-green:hover,
+.btn-detail:hover {
   background-color: var(--color-primary);
+  border-color: var(--color-primary);
   color: var(--color-white);
 }
 
-/* Outline Azul */
-.btn--outline-blue {
-  background-color: transparent;
-  border-color: var(--color-secondary);
-  color: var(--color-secondary);
-}
-.btn--outline-blue:hover {
-  background-color: var(--color-secondary);
-  color: var(--color-white);
-}
-
-/* Outline Branco (em fundos escuros) */
+/* ---------- Outline branco — sobre fundos escuros ---------- */
 .btn--outline-white {
   background-color: transparent;
-  border-color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.7);
   color: var(--color-white);
 }
 .btn--outline-white:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--color-white);
   border-color: var(--color-white);
+  color: var(--color-navy);
 }
 
-/* Ghost */
+/* ---------- Branco — sobre fundos coloridos/escuros (navy sobre branco 15.8:1) ---------- */
+.btn--white {
+  background-color: var(--color-white);
+  border-color: var(--color-white);
+  color: var(--color-navy);
+}
+.btn--white:hover {
+  background-color: var(--color-surface);
+  border-color: var(--color-surface);
+  color: var(--color-navy);
+  box-shadow: 0 6px 16px rgba(0, 18, 51, 0.25); /* navy-3 */
+}
+
+/* ---------- Ghost ---------- */
 .btn--ghost {
   background-color: transparent;
   border-color: transparent;
@@ -120,77 +192,106 @@
 }
 .btn--ghost:hover {
   background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
 }
 
-/* WhatsApp */
-.btn--whatsapp {
+/* ---------- WhatsApp — verde escuro com texto branco (5.1:1) ---------- */
+.btn--whatsapp,
+.btn-wa {
   background-color: var(--color-whatsapp-btn);
   border-color: var(--color-whatsapp-btn);
   color: var(--color-whatsapp-btn-text);
 }
-.btn--whatsapp:hover {
+.btn--whatsapp:hover,
+.btn-wa:hover {
   background-color: var(--color-whatsapp-btn-dark);
   border-color: var(--color-whatsapp-btn-dark);
-  box-shadow: 0 4px 12px rgba(30, 126, 70, 0.3);
+  color: var(--color-whatsapp-btn-text);
+  box-shadow: 0 6px 16px rgba(30, 126, 70, 0.3); /* whatsapp-btn */
 }
 
-/* Tamanhos */
+/* ---------- Tamanhos ---------- */
 .btn--sm {
-  padding: 0.5rem 1rem;
-  font-size: var(--font-size-xs);
+  min-height: var(--btn-height-sm);
+  padding: var(--space-2) var(--space-5);
+  font-size: var(--font-size-sm);
 }
 
-.btn--lg {
-  padding: 1rem 2rem;
-  font-size: var(--font-size-base);
-}
-
-.btn--xl {
-  padding: 1.125rem 2.25rem;
+.btn--lg,
+.btn-wa--lg,
+.btn-cta {
+  min-height: var(--btn-height-lg);
+  padding: var(--space-4) var(--space-8);
   font-size: var(--font-size-md);
 }
 
-/* Full Width */
+.btn--xl {
+  min-height: var(--btn-height-lg);
+  padding: var(--space-4) var(--space-10);
+  font-size: var(--font-size-lg);
+}
+
 .btn--full {
   width: 100%;
 }
 
+/* Ocupa o espaço livre numa linha de ações (ex.: ficha do produto) */
+.btn--grow {
+  flex: 1 1 200px;
+}
+
+/* CTA do header: um pouco mais compacto que o padrão */
+.nav__btn {
+  font-size: 0.9375rem; /* 15px */
+  padding-inline: var(--space-6);
+}
+
 /* =========================================
-   SECTION TITLE
+   TÍTULOS DE SEÇÃO
+   <span class="section-label">Rótulo</span>
+   <h2 class="section-title">Título <span>destaque</span></h2>
+   .section-lead = bloco centralizado (rótulo + h2 + parágrafo)
 ========================================= */
-.section-title {
-  margin-bottom: var(--space-12);
-}
-
-.section-title--center {
-  text-align: center;
-}
-
+.section-label,
 .section-title__label {
   display: inline-block;
+  font-family: var(--font-family-base);
   font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
   letter-spacing: var(--letter-spacing-wider);
+  line-height: var(--line-height-snug);
   text-transform: uppercase;
   color: var(--color-primary);
   margin-bottom: var(--space-3);
 }
 
-.section-title__label--blue {
-  color: var(--color-secondary);
+/* Rótulo sobre fundo escuro */
+.section-label--light,
+.section--dark .section-label,
+.page-hero .section-label,
+.cta-banner .section-label {
+  color: var(--color-accent);
 }
 
-.section-title__label--purple { /* legado: roxo → navy (amarelo não pode ser texto em fundo claro) */
-  color: var(--color-navy);
-}
-
-.section-title__h2 {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
+.section-title,
+.section-title__h2,
+.section-lead h2 {
+  font-family: var(--font-family-heading);
+  font-size: var(--fs-h2);
+  font-weight: var(--font-weight-extrabold);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-tight);
-  color: var(--color-gray-900);
+  color: var(--color-navy);
   margin-bottom: var(--space-4);
+}
+
+.section-title span,
+.section-lead h2 span {
+  color: var(--color-primary);
+}
+
+.section-title--center {
+  text-align: center;
 }
 
 .section-title__desc {
@@ -200,89 +301,237 @@
   max-width: 600px;
 }
 
-.section-title--center .section-title__desc {
-  margin-left: auto;
-  margin-right: auto;
+.section-lead {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto var(--space-10);
+}
+
+.section-lead p {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+@media (min-width: 768px) {
+  .section-lead {
+    margin-bottom: var(--space-12);
+  }
+  .section-lead p {
+    font-size: var(--font-size-md);
+  }
+}
+
+/* Títulos dentro de seções escuras ficam brancos */
+.section--dark :is(h1, h2, h3, h4),
+.page-hero :is(h1, h2, h3, h4),
+.cta-banner :is(h1, h2, h3, h4) {
+  color: var(--color-white);
 }
 
 /* =========================================
-   CARDS — PRODUTO
+   GRADE DE PRODUTOS
+   Mobile: 2 colunas (mín. 150px — cabe 2 col. em 360px com gutter de 24px)
+   >= 768px: auto-fill com mínimo de 220px
+========================================= */
+.product-grid,
+#featured-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .product-grid,
+  #featured-products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-6);
+  }
+}
+
+/* =========================================
+   CARD DE PRODUTO (único — home, catálogo, categorias, relacionados)
+   Aceita os dois nomes de elemento usados no markup:
+   __img/__image, __cat/__category, __badges/__badge
 ========================================= */
 .product-card {
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  transition: box-shadow var(--transition-base), transform var(--transition-base);
+  position: relative;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  transition: transform var(--transition-slow),
+              box-shadow var(--transition-slow),
+              border-color var(--transition-slow);
 }
 
-.product-card:hover {
-  box-shadow: var(--shadow-xl);
-  transform: translateY(-8px);
+/* animations.js adiciona .fade-in aos cards: mantém a transição curta */
+.product-card.fade-in {
+  transition: opacity var(--transition-slower),
+              transform var(--transition-slow),
+              box-shadow var(--transition-slow),
+              border-color var(--transition-slow);
 }
 
+.product-card:hover,
+.product-card.fade-in.is-visible:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+
+/* Imagem quadrada, fundo neutro, contain */
+.product-card__img,
 .product-card__image {
   position: relative;
-  aspect-ratio: 4 / 3;
-  background-color: var(--color-gray-50);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background-color: var(--color-surface);
   overflow: hidden;
 }
 
+.product-card__img > a,
+.product-card__image > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.product-card__img img,
 .product-card__image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-slow);
+  object-fit: contain;
+  mix-blend-mode: multiply; /* funde o fundo branco das fotos com o cinza do card */
+  transition: transform var(--transition-slower);
 }
 
+.product-card:hover .product-card__img img,
 .product-card:hover .product-card__image img {
-  transform: scale(1.08);
+  transform: scale(1.04);
 }
 
+.product-card__badges,
 .product-card__badge {
   position: absolute;
   top: var(--space-3);
   left: var(--space-3);
-  z-index: 10;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
 }
 
 .product-card__body {
-  padding: var(--space-5);
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding: var(--space-3) var(--space-3) var(--space-4);
 }
 
+.product-card__cat,
 .product-card__category {
+  display: block;
   font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
   letter-spacing: var(--letter-spacing-wide);
+  line-height: var(--line-height-snug);
   text-transform: uppercase;
   color: var(--color-primary);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
 }
 
 .product-card__name {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-gray-900);
-  line-height: var(--line-height-snug);
-  margin-bottom: var(--space-3);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  min-height: calc(2em * 1.35); /* reserva 2 linhas: preços alinhados na grade */
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.35;
+  letter-spacing: 0;
+  color: var(--color-navy);
+  margin-bottom: var(--space-2);
+}
+
+.product-card__name a {
+  color: inherit;
+  text-decoration: none;
+}
+.product-card__name a:hover {
+  color: var(--color-primary);
 }
 
 .product-card__desc {
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   line-height: var(--line-height-relaxed);
-  flex: 1;
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-4);
 }
 
-.product-card__actions {
+.product-card__price {
   display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.price-current {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: var(--letter-spacing-snug);
+  color: var(--color-price);
+}
+
+.price-old {
+  font-size: var(--font-size-sm);
+  color: var(--color-price-old);
+  text-decoration: line-through;
+}
+
+/* Ações no rodapé do card: WhatsApp largura total + "Ver" */
+.product-card__actions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
   gap: var(--space-2);
+}
+
+.product-card__actions > a,
+.product-card__actions > button {
+  width: 100%;
+  min-height: var(--btn-height-sm);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-sm);
+}
+
+@media (min-width: 768px) {
+  .product-card__img,
+  .product-card__image {
+    padding: var(--space-6);
+  }
+  .product-card__body {
+    padding: var(--space-5);
+  }
+  .product-card__name {
+    font-size: var(--font-size-base);
+  }
+  .price-current {
+    font-size: var(--font-size-xl);
+  }
 }
 
 /* =========================================
@@ -530,17 +779,38 @@
 }
 
 /* =========================================
-   BADGES
+   BADGES — pílula
 ========================================= */
 .badge {
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
-  padding: 0.25rem 0.625rem;
+  padding: 0.3125rem 0.75rem;
   font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
-  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
   line-height: 1;
+  white-space: nowrap;
+  border-radius: var(--radius-pill);
+}
+
+.badge-sale,
+.badge--sale {
+  background-color: var(--color-badge-sale);
+  color: var(--color-white);
+}
+
+.badge-new,
+.badge--new {
+  background-color: var(--color-badge-new);
+  color: var(--color-white);
+}
+
+.badge-hit,
+.badge--hit {
+  background-color: var(--color-badge-hit);
+  color: var(--color-on-accent);
 }
 
 .badge--green {
@@ -561,6 +831,143 @@
 .badge--gray {
   background-color: var(--color-gray-100);
   color: var(--color-gray-700);
+}
+
+/* =========================================
+   HERO DE PÁGINA INTERNA
+   <section class="page-hero">                          gradiente navy → azul
+   <section class="page-hero page-hero--photo"
+            style="--page-hero-image:url('/assets/images/hero/slide-3.jpg')">
+     <div class="container page-hero__inner">
+       <nav class="breadcrumb">…</nav>
+       <span class="section-label">Rótulo</span>
+       <h1 class="page-hero__title">Título</h1>
+       <p class="page-hero__subtitle">Subtítulo</p>
+       <div class="page-hero__actions">…botões…</div>
+     </div>
+   </section>
+   Modificador --center centraliza o texto.
+========================================= */
+.page-hero {
+  position: relative;
+  padding: clamp(var(--space-12), 8vw, var(--space-20)) 0;
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-primary) 100%);
+  color: var(--color-white);
+  overflow: hidden;
+}
+
+.page-hero--photo {
+  background-image:
+    linear-gradient(var(--overlay-navy), var(--overlay-navy)),
+    var(--page-hero-image, none);
+  background-size: cover;
+  background-position: center;
+}
+
+.page-hero__inner > * {
+  max-width: 760px;
+}
+
+.page-hero--center {
+  text-align: center;
+}
+.page-hero--center .page-hero__inner > * {
+  margin-inline: auto;
+}
+
+.page-hero__title {
+  font-family: var(--font-family-heading);
+  font-size: var(--fs-h1);
+  font-weight: var(--font-weight-extrabold);
+  line-height: 1.1;
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-white);
+  margin-bottom: var(--space-4);
+}
+
+.page-hero__subtitle {
+  font-size: var(--fs-lead);
+  line-height: var(--line-height-relaxed);
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 60ch;
+}
+
+.page-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+.page-hero--center .page-hero__actions {
+  justify-content: center;
+}
+
+/* Breadcrumb claro dentro do hero */
+.page-hero .breadcrumb {
+  color: var(--color-soft-on-dark);
+  margin-bottom: var(--space-6);
+}
+.page-hero--center .breadcrumb {
+  justify-content: center;
+}
+.page-hero .breadcrumb__item a {
+  color: var(--color-soft-on-dark);
+}
+.page-hero .breadcrumb__item a:hover {
+  color: var(--color-white);
+}
+.page-hero .breadcrumb__item--active {
+  color: var(--color-white);
+}
+.page-hero .breadcrumb__separator {
+  color: var(--color-muted-on-dark);
+}
+
+/* =========================================
+   CTA BANNER (bloco de chamada antes do rodapé)
+   <div class="cta-banner">
+     <span class="section-label">Rótulo</span>
+     <h2 class="cta-banner__title">Título</h2>
+     <p class="cta-banner__text">Texto</p>
+     <div class="cta-banner__actions">…botões…</div>
+   </div>
+   Obs.: empresa/locacao/solucoes ainda definem .cta-banner no <style> da página
+   (migração na Fase 5) — por isso o layout interno usa só os elementos __*.
+========================================= */
+.cta-banner {
+  position: relative;
+  padding: clamp(var(--space-10), 6vw, var(--space-16)) clamp(var(--space-6), 5vw, var(--space-16));
+  border-radius: var(--radius-card);
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-primary) 100%);
+  color: var(--color-white);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.cta-banner__title {
+  font-family: var(--font-family-heading);
+  font-size: var(--fs-h2);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-white);
+  margin-bottom: var(--space-3);
+}
+
+.cta-banner__text {
+  max-width: 56ch;
+  margin: 0 auto var(--space-6);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-relaxed);
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.cta-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
 }
 
 /* =========================================
@@ -886,6 +1293,7 @@
 .bg-dark     { background-color: var(--color-bg-dark); }
 
 .mt-auto { margin-top: auto; }
+.mt-2    { margin-top: var(--space-2); }
 .mb-0    { margin-bottom: 0; }
 
 /* =========================================
@@ -903,10 +1311,6 @@
 }
 
 @media (max-width: 768px) {
-  .section-title__h2 {
-    font-size: var(--font-size-2xl);
-  }
-
   .cards-grid--3,
   .cards-grid--4,
   .grid--3-cols,
@@ -938,16 +1342,28 @@
     grid-template-columns: 1fr;
   }
 
-  .product-card__actions {
-    flex-direction: column;
-  }
-
   .btn--xl {
-    padding: 0.875rem 1.5rem;
+    padding: var(--space-3) var(--space-6);
     font-size: var(--font-size-base);
   }
+}
 
-  .section-title__h2 {
-    font-size: var(--font-size-xl);
+/* =========================================
+   REDUÇÃO DE MOVIMENTO
+   (reset.css já zera as durações; aqui removemos os deslocamentos)
+========================================= */
+@media (prefers-reduced-motion: reduce) {
+  .btn:active,
+  .btn-wa:active,
+  .btn-detail:active,
+  .btn-cta:active,
+  .carousel__cta:active,
+  .nav__btn:active,
+  .product-card:hover,
+  .product-card.fade-in.is-visible:hover,
+  .product-card:hover .product-card__img img,
+  .product-card:hover .product-card__image img,
+  .whatsapp-fab:hover {
+    transform: none;
   }
 }

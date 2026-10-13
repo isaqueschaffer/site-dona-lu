@@ -66,10 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         });
         featuredGrid.innerHTML = html;
-        
-        // Adjust grid for 4 items if needed
-        featuredGrid.style.display = 'grid';
-        featuredGrid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(250px, 1fr))';
-        featuredGrid.style.gap = '24px';
+        // Grade (colunas/gap) definida em components.css (#featured-products-grid / .product-grid)
     }
 });

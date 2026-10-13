@@ -32,6 +32,7 @@
 
   /* Texto secundário */
   --color-muted-on-dark:  #879BC1;   /* texto secundário sobre navy (5.6:1) */
+  --color-soft-on-dark:   #B8C4DC;   /* texto/links do rodapé sobre navy (9.0:1) e navy-2 (9.1:1) */
   --color-muted-on-light: #5A6A88;   /* texto secundário sobre branco (5.5:1) / #EFEFEF (4.7:1) */
 
   /* Superfícies neutras */
@@ -51,7 +52,7 @@
      E-COMMERCE
   ========================================= */
   --color-price:        var(--color-navy);
-  --color-price-old:    #868E96;
+  --color-price-old:    var(--color-muted-on-light); /* 5.5:1 no branco */
   --color-badge-sale:   #C62828;          /* branco 5.6:1 */
   --color-badge-new:    var(--color-primary);
   --color-badge-hit:    var(--color-accent); /* usar com texto navy */
@@ -214,9 +215,37 @@
   /* =========================================
      HEADER
   ========================================= */
-  --header-topbar-height: 40px;
-  --header-nav-height:    72px;
-  --header-total-height:  112px;
+  --header-topbar-height: 36px;
+  --header-nav-height:    72px;   /* 80px a partir de 992px (ver media query abaixo) */
+  --header-total-height:  calc(var(--header-topbar-height) + var(--header-nav-height));
+  --header-logo-height:   56px;
+  --shadow-header:        0 2px 16px rgba(0, 31, 86, 0.08); /* sombra suave do header fixo (navy 8%) */
+
+  /* =========================================
+     BOTÕES (sistema .btn — pílula)
+  ========================================= */
+  --btn-height:     48px;   /* padrão; alvo de toque confortável */
+  --btn-height-sm:  44px;   /* mínimo de toque */
+  --btn-height-lg:  56px;
+  --btn-padding-x:  1.75rem;
+  --btn-font-size:  var(--font-size-base);
+
+  /* =========================================
+     OVERLAYS
+  ========================================= */
+  --overlay-navy:   rgba(0, 31, 86, 0.78); /* sobre fotos em .page-hero--photo (texto branco) */
+
+  /* =========================================
+     RODAPÉ
+  ========================================= */
+  --footer-padding-top: clamp(4rem, 8vw, 7rem); /* 64 → 112px, respiro estilo Start */
+}
+
+@media (min-width: 992px) {
+  :root {
+    --header-nav-height:  80px;
+    --header-logo-height: 64px;
+  }
 }
 
 /* Utilitários de acessibilidade */
@@ -235,7 +264,8 @@
 /* Focus visível para navegação por teclado */
 :root { --focus-ring: var(--color-primary); }
 /* Em fundos azul/navy o anel azul some — usa o amarelo (9.07:1 sobre navy) */
-.topbar, .footer, .cta, .cta-banner, .hero-page, .section--dark, .page-home .header:not(.menu-open) {
+.topbar, .footer, .cta, .cta-banner, .hero-page, .page-hero, .section--dark,
+.page-home .header:not(.menu-open):not(.is-scrolled) {
   --focus-ring: var(--color-accent);
 }
 :focus-visible {

@@ -5,39 +5,15 @@
 
 /* =========================================
    HERO CAROUSEL — Sem CLS, sem autoplay agressivo
-   Ocupa de ponta a ponta na vertical (100dvh)
+   Altura fluida: 520–720px (80% da viewport); o header transparente sobrepõe o topo
 ========================================= */
 .hero-carousel {
   position: relative;
+  width: 100%;
   overflow: hidden;
   background-color: var(--color-navy); /* fallback cor enquanto carrega */
-  /* Altura total da tela (100% da viewport com o header sobreposto) */
-  height: 100vh;
-  height: 100dvh;
-  min-height: 520px;
-}
-/* Logo do Header */
-.header__logo-image {
-  width: 100px;
-  height: auto;
-  display: block;
-  position: relative;
-  top: 30px;
-}
-/* Menu do Header */
-.nav__link,
-.nav__btn {
-  font-size: 19px;
-  position: relative;
-  top: 30px;
-}
-
-/* ===== HERO CAROUSEL ===== */
-.hero-carousel {
-  width: 100%;
-  height: 420px; /* diminua aqui para deixar o banner mais baixo */
-  overflow: hidden;
-  position: relative;
+  height: clamp(520px, 80vh, 720px);
+  height: clamp(520px, 80dvh, 720px);
 }
 
 .carousel__track {
@@ -146,29 +122,13 @@
 }
 
 .carousel__desc {
-  font-size: clamp(14px, 1.8vw, 18px);
+  font-size: clamp(1rem, 1.8vw, 1.125rem); /* mínimo 16px */
   line-height: 1.6;
   margin-bottom: var(--space-6);
   color: rgba(255,255,255,0.9);
 }
 
-.carousel__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  background: var(--color-yellow);
-  color: var(--color-secondary);
-  font-weight: 700;
-  font-size: clamp(14px, 1.8vw, 16px);
-  padding: 12px 28px;
-  border-radius: var(--radius-md);
-  text-decoration: none;
-  transition: transform var(--transition-fast), background-color var(--transition-fast);
-}
-.carousel__cta:hover {
-  background: var(--color-accent-dark);
-  transform: scale(1.04);
-}
+/* .carousel__cta: visual do botão vem de components.css (accent pílula) */
 
 /* Controles de navegação */
 .carousel__btn {
@@ -204,10 +164,11 @@
   transform: translateX(-50%);
   z-index: 10;
   display: flex;
-  gap: var(--space-2);
+  gap: 14px; /* ponto 10px + gap 14px = passo de 24px (alvo de toque sem sobreposição) */
 }
 
 .carousel__dot {
+  position: relative;
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -217,6 +178,12 @@
   transition: background var(--transition-fast), transform var(--transition-fast);
   padding: 0;
 }
+/* Área clicável de 24x24 mantendo o ponto visual de 10px */
+.carousel__dot::after {
+  content: '';
+  position: absolute;
+  inset: -7px;
+}
 .carousel__dot.is-active {
   background: var(--color-yellow);
   border-color: var(--color-yellow);
@@ -224,16 +191,19 @@
 }
 
 @media (max-width: 768px) {
-  .hero-carousel {
-    min-height: 460px;
-  }
-
   .carousel__content {
     padding: 0 clamp(16px, 4vw, 32px);
   }
 
   .carousel__text {
     max-width: 100%;
+  }
+}
+
+/* Setas (44px + 8–20px de margem) visíveis a partir de 601px: o texto não passa por baixo delas */
+@media (min-width: 601px) {
+  .carousel__content {
+    padding-inline: clamp(72px, 6vw, 96px);
   }
 }
 
@@ -249,7 +219,6 @@
     margin-bottom: var(--space-3);
   }
   .carousel__desc {
-    font-size: 14px;
     margin-bottom: var(--space-4);
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -326,184 +295,8 @@
 
 /* =========================================
    PRODUTOS EM DESTAQUE
+   Grade, card, preço, selos e botões vêm de components.css
 ========================================= */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(clamp(200px, 22vw, 260px), 1fr));
-  gap: clamp(16px, 3vw, 24px);
-}
-
-.product-card {
-  background: var(--color-white);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--color-border);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: box-shadow var(--transition-base), transform var(--transition-base);
-}
-.product-card:hover {
-  box-shadow: var(--shadow-xl);
-  transform: translateY(-8px);
-}
-
-.product-card__img {
-  position: relative;
-  background: var(--color-gray-50);
-  aspect-ratio: 1;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-6);
-}
-
-.product-card__img a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-
-.product-card__img img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  transition: transform var(--transition-slow);
-}
-.product-card:hover .product-card__img img { transform: scale(1.08); }
-
-.product-card__badges {
-  position: absolute;
-  top: var(--space-3);
-  left: var(--space-3);
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  z-index: 10;
-}
-
-.badge-sale { background: var(--color-badge-sale); color: #fff; }
-.badge-new  { background: var(--color-badge-new);  color: #fff; }
-.badge-hit  { background: var(--color-badge-hit);  color: var(--color-secondary); }
-
-.product-card__body {
-  padding: var(--space-5);
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.product-card__cat {
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: var(--letter-spacing-wide);
-  text-transform: uppercase;
-  color: var(--color-teal);
-  margin-bottom: var(--space-1);
-}
-
-.product-card__name {
-  font-size: var(--font-size-base);
-  font-weight: 700;
-  color: var(--color-secondary);
-  line-height: 1.35;
-  margin-bottom: var(--space-3);
-  flex: 1;
-}
-
-.product-card__price {
-  margin-bottom: var(--space-4);
-}
-
-.price-current {
-  font-size: var(--font-size-xl);
-  font-weight: 700;
-  color: var(--color-price);
-}
-
-.price-old {
-  font-size: var(--font-size-sm);
-  color: var(--color-price-old);
-  text-decoration: line-through;
-  margin-left: var(--space-2);
-}
-
-.product-card__actions {
-  display: flex;
-  gap: var(--space-2);
-}
-
-.btn-wa {
-  flex: 1;
-  background: var(--color-whatsapp-btn);
-  color: var(--color-whatsapp-btn-text);
-  border: none;
-  border-radius: var(--radius-md);
-  padding: 10px 12px;
-  font-weight: 700;
-  font-size: var(--font-size-sm);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-1);
-  text-decoration: none;
-  transition: background var(--transition-fast), transform var(--transition-fast);
-}
-.btn-wa:hover { background: var(--color-whatsapp-btn-dark); transform: scale(1.02); }
-
-.btn-detail {
-  background: transparent;
-  border: 2px solid var(--color-primary);
-  color: var(--color-primary);
-  border-radius: var(--radius-md);
-  padding: 10px 16px;
-  font-weight: 700;
-  font-size: var(--font-size-sm);
-  cursor: pointer;
-  text-decoration: none;
-  transition: background var(--transition-fast), color var(--transition-fast);
-  white-space: nowrap;
-}
-.btn-detail:hover { background: var(--color-primary); color: #fff; }
-
-/* =========================================
-   SECTION HERO CATEGORIAS (chamadas)
-========================================= */
-.section-lead {
-  text-align: center;
-  max-width: 680px;
-  margin: 0 auto var(--space-12);
-}
-
-.section-label {
-  display: inline-block;
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-bold);
-  letter-spacing: var(--letter-spacing-wider);
-  text-transform: uppercase;
-  color: var(--color-teal);
-  margin-bottom: var(--space-3);
-}
-
-.section-lead h2 {
-  font-family: var(--font-family-heading);
-  font-size: clamp(24px, 3.5vw, 36px);
-  font-weight: 700;
-  color: var(--color-secondary);
-  line-height: 1.2;
-  margin-bottom: var(--space-4);
-}
-.section-lead h2 span { color: var(--color-primary); }
-
-.section-lead p {
-  font-size: clamp(15px, 1.6vw, 17px);
-  color: var(--color-text-secondary);
-  line-height: 1.7;
-}
 
 /* =========================================
    BLOG CARDS
@@ -630,25 +423,7 @@
   color: rgba(255,255,255,0.85);
 }
 
-.btn-cta {
-  background-color: var(--color-accent);
-  color: var(--color-on-accent);
-  font-size: clamp(15px, 1.8vw, 18px);
-  font-weight: 700;
-  padding: 16px clamp(24px, 4vw, 44px);
-  border-radius: var(--radius-md);
-  transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  text-decoration: none;
-  white-space: nowrap;
-}
-.btn-cta:hover {
-  transform: scale(1.04);
-  background-color: var(--color-accent-dark);
-  box-shadow: 0 8px 24px rgba(253,184,39,0.4);
-}
+/* .btn-cta: visual vem de components.css (accent pílula, tamanho lg) */
 
 /* =========================================
    PARCEIROS
@@ -683,5 +458,5 @@
 ========================================= */
 @media (max-width: 768px) {
   .cta .container { flex-direction: column; text-align: center; }
-  .btn-cta { width: 100%; justify-content: center; }
+  .cta .btn-cta { width: 100%; }
 }

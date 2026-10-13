@@ -83,19 +83,21 @@
   gap: var(--space-3);
 }
 
+/* Colunas e gap vêm de components.css (.product-grid) */
 .produtos-main .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
-  justify-content: center;
-  gap: clamp(16px, 2.5vw, 28px);
   width: 100%;
   max-width: 1050px;
   margin: 0 auto;
 }
 
+/* minmax(0, …) impede que o conteúdo (grade/selects) alargue a coluna além da tela */
+.produtos-wrapper > * {
+  min-width: 0;
+}
+
 @media (max-width: 900px) {
   .produtos-wrapper {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .produtos-sidebar {
     order: -1;
